@@ -1,0 +1,57 @@
+<DataSource 
+	ID="securityprofiles"
+    dropExtraFields="true"
+    serverType="generic"
+    mappedBeanClass="com.skyquill.minder.model.SecurityProfile"
+>
+	<fields>
+		<field name="id" 					type="text" hidden="true" primaryKey="true"></field>
+		<field name="travellerId" 			type="text" hidden="true" foreignKey="travellers.id"></field>
+		<field name="homeAddress" 			type="textarea"></field>
+		<field name="emergContact1Name" 	type="text"></field>
+		<field name="emergContact1Rship" 	type="text"></field>
+		<field name="emergContact1DayPhone" type="text"></field>
+		<field name="emergContact1EvePhone" type="text"></field>
+		<field name="emergContact1CellPhone" type="text"></field>
+		<field name="emergContact1LocAlt" 	type="text"></field>
+		<field name="emergContact2Name" 	type="text"></field>
+		<field name="emergContact2Rship" 	type="text"></field>
+		<field name="emergContact2DayPhone" type="text"></field>
+		<field name="emergContact2EvePhone" type="text"></field>
+		<field name="emergContact2CellPhone" type="text"></field>
+		<field name="emergContact2LocAlt" 	type="text"></field>
+		<field name="doctorName" 			type="text"></field>
+		<field name="doctorAddress" 		type="textarea"></field>
+		<field name="doctorPhone" 			type="text"></field>
+		<field name="bloodType" 			type="text"></field>
+		<field name="pharmName" 			type="text"></field>
+		<field name="pharmAddress" 			type="textarea"></field>
+		<field name="pharmPhone" 			type="text"></field>
+		<field name="vitalPrescrip" 		type="textarea"></field>
+		<field name="allergies" 			type="textarea"></field>
+		<field name="optoName" 				type="text"></field>
+		<field name="optoAddress" 			type="textarea"></field>
+		<field name="optoPhone" 			type="text"></field>
+		<field name="prescripLe" 			type="text" hidden="true"></field>
+		<field name="prescripRe" 			type="text" hidden="true"></field>
+		<field name="glasses" 				type="boolean"></field>
+		<field name="contacts" 				type="boolean"></field>
+		<field name="contactSolution" 		type="text"></field>
+		<field name="visionConditions" 		type="textarea"></field>
+		<field name="dentName" 				type="text"></field>
+		<field name="dentAddress" 			type="textarea"></field>
+		<field name="dentPhone" 			type="text"></field>
+		<field name="dentConditions" 		type="textarea"></field>
+		<field name="physDescription" 		type="textarea"></field>
+		<field name="likes" 				type="textarea" hidden="true"></field>
+		<field name="dislikes" 				type="textarea" hidden="true"></field>
+		<field name="activityParticipates" 	type="textarea" hidden="true"></field>
+		<field name="activityDislikes" 		type="textarea" hidden="true"></field>
+		<field name="codePhrase" 			type="text"></field>
+		<field name="auditDateTime" type="datetime" canEdit="false" title="Last Changed"></field>
+		<field name="auditUserId" 	type="text" canEdit="false" title="By"></field>
+		<field name="version" 		type="number" hidden="true"></field>
+	</fields>
+    <serverObject lookupStyle="spring" bean="genericJdoDao"/>
+
+</DataSource>

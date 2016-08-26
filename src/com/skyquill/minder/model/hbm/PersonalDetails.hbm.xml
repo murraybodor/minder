@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated 25-Dec-2009 8:45:28 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+
+<class 
+    name="com.skyquill.minder.model.PersonalDetails"
+    table="PERSONALDETAILS"
+>
+
+	<id 
+        name="id"
+        type="java.lang.Long"
+    >
+    
+<column name="ID" />
+	    <generator class="native">
+            <param name="max_lo">49</param>
+            <param name="sequence">PERSONALDETAILS_SEQ</param>
+		</generator>
+    </id>
+
+    <version
+        name="version"
+        type="java.lang.Integer"
+    >
+<column name="VERSION" />
+	</version>
+
+
+
+<component 
+    name="audit"
+    class="com.skyquill.minder.model.Audit">
+    
+<!-- TODO: handle properties and component -->    
+</component>    <many-to-one
+	    name="birthCountry"
+	    class="com.skyquill.minder.model.Country"
+        fetch="join"
+    >
+<column name="BIRTH_COUNTRY_ID" />
+   </many-to-one>
+    <property
+        name="birthDate"
+        type="java.util.Date"
+    >
+<column name="BIRTH_DATE" />
+  </property>
+
+    <property
+        name="birthPlace"
+        type="java.lang.String"
+    >
+<column name="BIRTH_PLACE" length="80" />
+  </property>
+
+    <property
+        name="cellPhone"
+        type="java.lang.String"
+    >
+<column name="CELL_PHONE" length="20" />
+  </property>
+
+    <property
+        name="comments"
+        type="java.lang.String"
+    >
+<column name="COMMENTS" length="400" />
+  </property>
+
+    <property
+        name="email"
+        type="java.lang.String"
+    >
+<column name="EMAIL" length="40" />
+  </property>
+
+    <property
+        name="employee"
+        type="java.lang.Boolean"
+    >
+<column name="EMPLOYEE" />
+  </property>
+
+    <property
+        name="firstName"
+        type="java.lang.String"
+    >
+<column name="FIRST_NAME" length="40" />
+  </property>
+
+    <property
+        name="homePhone"
+        type="java.lang.String"
+    >
+<column name="HOME_PHONE" length="20" />
+  </property>
+
+    <property
+        name="lastName"
+        type="java.lang.String"
+    >
+<column name="LAST_NAME" length="40" />
+  </property>
+
+    <many-to-one
+	    name="traveller"
+	    class="com.skyquill.minder.model.Traveller"
+        fetch="join"
+    >
+<column name="TRAVELLER_ID" />
+   </many-to-one>
+
+</class>
+
+</hibernate-mapping>

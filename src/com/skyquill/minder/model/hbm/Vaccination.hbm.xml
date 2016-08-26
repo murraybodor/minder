@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated 25-Dec-2009 8:45:28 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+
+<class 
+    name="com.skyquill.minder.model.Vaccination"
+    table="VACCINATIONS"
+>
+
+	<id 
+        name="id"
+        type="java.lang.Long"
+    >
+    
+<column name="ID" />
+	    <generator class="native">
+            <param name="max_lo">49</param>
+            <param name="sequence">VACCINATIONS_SEQ</param>
+		</generator>
+    </id>
+
+    <version
+        name="version"
+        type="java.lang.Integer"
+    >
+<column name="VERSION" />
+	</version>
+
+
+
+<component 
+    name="audit"
+    class="com.skyquill.minder.model.Audit">
+    
+<!-- TODO: handle properties and component -->    
+</component>    <property
+        name="booster1DueDate"
+        type="java.util.Date"
+    >
+<column name="BOOSTER1_DUE_DATE" />
+  </property>
+
+    <property
+        name="booster1RemindDate"
+        type="java.util.Date"
+    >
+<column name="B1_REMIND_DATE" />
+  </property>
+
+    <property
+        name="booster2DueDate"
+        type="java.util.Date"
+    >
+<column name="BOOSTER2_DUE_DATE" />
+  </property>
+
+    <property
+        name="booster2RemindDate"
+        type="java.util.Date"
+    >
+<column name="B2_REMIND_DATE" />
+  </property>
+
+    <property
+        name="comments"
+        type="java.lang.String"
+    >
+<column name="COMMENTS" length="400" />
+  </property>
+
+    <property
+        name="expiryDate"
+        type="java.util.Date"
+    >
+<column name="EXPIRY_DATE" />
+  </property>
+
+    <property
+        name="remindDate"
+        type="java.util.Date"
+    >
+<column name="REMIND_DATE" />
+  </property>
+
+    <property
+        name="remindOnExpiry"
+        type="boolean"
+    >
+<column name="REMIND_ON_EXPIRY" />
+  </property>
+
+    <many-to-one
+	    name="traveller"
+	    class="com.skyquill.minder.model.Traveller"
+        fetch="join"
+    >
+<column name="TRAVELLER_ID" />
+   </many-to-one>
+    <property
+        name="vaccinationDate"
+        type="java.util.Date"
+    >
+<column name="VACCINATION_DATE" />
+  </property>
+
+    <property
+        name="vaccinationType"
+        type="java.lang.String"
+    >
+<column name="VACCINATION_TYPE" length="80" />
+  </property>
+
+
+</class>
+
+</hibernate-mapping>

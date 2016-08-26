@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated 25-Dec-2009 8:45:28 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+
+<class 
+    name="com.skyquill.minder.model.SOSCoverage"
+    table="SOSCOVERAGES"
+>
+
+	<id 
+        name="id"
+        type="java.lang.Long"
+    >
+    
+<column name="ID" />
+	    <generator class="native">
+            <param name="max_lo">49</param>
+            <param name="sequence">SOSCOVERAGES_SEQ</param>
+		</generator>
+    </id>
+
+    <version
+        name="version"
+        type="java.lang.Integer"
+    >
+<column name="VERSION" />
+	</version>
+
+
+
+<component 
+    name="audit"
+    class="com.skyquill.minder.model.Audit">
+    
+<!-- TODO: handle properties and component -->    
+</component>    <property
+        name="cardNumber"
+        type="java.lang.String"
+    >
+<column name="CARD_NUMBER" length="40" />
+  </property>
+
+    <property
+        name="cardType"
+        type="java.lang.String"
+    >
+<column name="CARD_TYPE" length="80" />
+  </property>
+
+    <property
+        name="comments"
+        type="java.lang.String"
+    >
+<column name="COMMENTS" length="400" />
+  </property>
+
+    <property
+        name="expiryDate"
+        type="java.util.Date"
+    >
+<column name="EXPIRY_DATE" />
+  </property>
+
+    <property
+        name="issueDate"
+        type="java.util.Date"
+    >
+<column name="ISSUE_DATE" />
+  </property>
+
+    <property
+        name="personalCoverage"
+        type="java.lang.Boolean"
+    >
+<column name="PERSONAL_COVERAGE" />
+  </property>
+
+    <property
+        name="returnDate"
+        type="java.util.Date"
+    >
+<column name="RETURN_DATE" />
+  </property>
+
+    <many-to-one
+	    name="traveller"
+	    class="com.skyquill.minder.model.Traveller"
+        cascade="all"
+        fetch="join"
+    >
+<column name="TRAVELLER_ID" />
+   </many-to-one>
+
+</class>
+
+</hibernate-mapping>

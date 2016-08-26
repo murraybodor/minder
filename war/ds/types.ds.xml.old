@@ -1,0 +1,20 @@
+<!-- Auto-generated from database table types -->
+
+<DataSource 
+	schema="demo"
+	dbName="Mysql"
+	tableName="types"
+	ID="types"
+	dataSourceVersion="1"
+	generatedBy="SC_SNAPSHOT-2009-12-17/EVAL Deployment 2009-12-17"
+	serverType="sql"
+>
+	<fields>
+		<field primaryKey="true" name="ID" type="sequence"></field>
+		<field name="DTYPE" length="31" type="text"></field>
+		<field name="NAME" length="80" type="text"></field>
+		<field name="AUDIT_DATETIME" type="datetime"></field>
+		<field name="AUDIT_USERID" length="20" type="text"></field>
+		<field name="VERSION" type="number"></field>
+	</fields>
+</DataSource>

@@ -1,0 +1,19 @@
+<DataSource 
+	ID="aircraftmodels"
+    dropExtraFields="true"
+    serverType="generic"
+    mappedBeanClass="com.skyquill.minder.model.AircraftModel"
+>
+	<fields>
+		<field name="id" 			type="text"  hidden="true" primaryKey="true"/>
+		<field name="type"			type="text"></field>
+		<field name="modelName" 	type="text"></field>
+		<field name="description" 	type="text"></field>
+		<field name="manufacturer" 	type="text"></field>
+		<field name="photoFilename" type="text"></field>
+		<field name="auditDateTime" type="datetime"></field>
+		<field name="auditUserId" 	type="text"></field>
+		<field name="version" 		type="number"></field>
+	</fields>
+    <serverObject lookupStyle="spring" bean="genericJdoDao"/>
+</DataSource>

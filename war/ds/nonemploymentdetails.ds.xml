@@ -1,0 +1,29 @@
+<DataSource 
+	ID="nonemploymentdetails"
+    dropExtraFields="true"
+    serverType="generic"
+    mappedBeanClass="com.skyquill.minder.model.NonEmploymentDetails"
+>
+	<fields>
+		<field name="id" 			type="text"  hidden="true" primaryKey="true"/>
+		<field name="travellerId" 	type="text" hidden="true" foreignKey="travellers.id"></field>
+		<field name="title" 		type="text"></field>
+		<field name="companyName" 	type="text"></field>
+		<field name="officePhone" 	type="text"></field>
+		<field name="email" 		type="text"></field>
+		<field name="costCenter" 	type="text"></field>
+		<field name="supervisorEmail" type="text"></field>
+		<field name="supervisorName" type="text"></field>
+		<field name="supervisorPhone" type="text"></field>
+		<field name="corpSupervisorId" 	type="text" foreignKey="supervisors.id"></field>
+		<field name="contractEffectiveDate" type="date"></field>
+		<field name="contractExpiryDate" type="date"></field>
+		<field name="dependant" 	type="boolean"></field>
+		<field name="guest" 		type="boolean"></field>
+		<field name="comments" 		type="textarea"></field>
+		<field name="auditDateTime" type="datetime" canEdit="false" title="Last Changed"></field>
+		<field name="auditUserId" 	type="text" canEdit="false" title="By"></field>
+		<field name="version" 		type="number" hidden="true"></field>
+	</fields>
+    <serverObject lookupStyle="spring" bean="genericJdoDao"/>
+</DataSource>

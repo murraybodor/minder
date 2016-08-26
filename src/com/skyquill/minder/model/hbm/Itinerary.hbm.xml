@@ -1,0 +1,202 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated 25-Dec-2009 8:45:28 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+
+<class 
+    name="com.skyquill.minder.model.Itinerary"
+    table="ITINERARIES"
+>
+
+	<id 
+        name="id"
+        type="java.lang.Long"
+    >
+    
+<column name="ID" />
+	    <generator class="native">
+            <param name="max_lo">49</param>
+            <param name="sequence">ITINERARIES_SEQ</param>
+		</generator>
+    </id>
+
+    <version
+        name="version"
+        type="java.lang.Integer"
+    >
+<column name="VERSION" />
+	</version>
+
+
+
+<component 
+    name="audit"
+    class="com.skyquill.minder.model.Audit">
+    
+<!-- TODO: handle properties and component -->    
+</component>    <property
+        name="authorizationId"
+        type="java.lang.Long"
+    >
+<column name="AUTH_ID" />
+  </property>
+
+    <property
+        name="comments"
+        type="java.lang.String"
+    >
+<column name="COMMENTS" length="400" />
+  </property>
+
+    <property
+        name="contact"
+        type="java.lang.String"
+    >
+<column name="CONTACT" length="240" />
+  </property>
+
+	<bag
+		name="costAllocations"
+        inverse="true"
+	>
+	
+ 		<key> 
+<column name="ITINERARY_ID" />
+        </key>
+		<one-to-many 
+			 class="com.skyquill.minder.model.CostAllocation"
+			/>			
+     </bag>    <many-to-one
+	    name="currency"
+	    class="com.skyquill.minder.model.Currency"
+        update="false"
+        insert="false"
+        fetch="join"
+    >
+<column name="CURRENCY_ID" />
+   </many-to-one>
+    <property
+        name="currencyId"
+        type="java.lang.Long"
+    >
+<column name="CURRENCY_ID" />
+  </property>
+
+    <property
+        name="departDate"
+        type="java.util.Date"
+    >
+<column name="DEPART_DATE" />
+  </property>
+
+    <property
+        name="flightCost"
+        type="java.lang.Float"
+    >
+<column name="FLIGHT_COST" />
+  </property>
+
+    <property
+        name="international"
+        type="java.lang.Boolean"
+    >
+<column name="INTERNATIONAL" />
+  </property>
+
+    <property
+        name="name"
+        type="java.lang.String"
+    >
+<column name="NAME" length="240" />
+  </property>
+
+    <property
+        name="pnrLocator"
+        type="java.lang.String"
+    >
+<column name="PNR_LOCATOR" length="8" />
+  </property>
+
+    <property
+        name="purpose"
+        type="java.lang.String"
+    >
+<column name="PURPOSE" length="240" />
+  </property>
+
+    <property
+        name="reservationDate"
+        type="java.util.Date"
+    >
+<column name="RESERVATION_DATE" />
+  </property>
+
+	<bag
+		name="reservations"
+        inverse="true"
+	>
+	
+ 		<key> 
+<column name="ITINERARY_ID" />
+        </key>
+		<one-to-many 
+			 class="com.skyquill.minder.model.Reservation"
+			/>			
+     </bag>    <property
+        name="returnDate"
+        type="java.util.Date"
+    >
+<column name="RETURN_DATE" />
+  </property>
+
+    <property
+        name="tax"
+        type="java.lang.Float"
+    >
+<column name="TAX" />
+  </property>
+
+    <property
+        name="ticketNumber"
+        type="java.lang.Integer"
+    >
+<column name="TICKET_NUMBER" />
+  </property>
+
+    <property
+        name="totalCost"
+        type="java.lang.Float"
+    >
+<column name="TOAL_COST" />
+  </property>
+
+    <many-to-one
+	    name="traveller"
+	    class="com.skyquill.minder.model.Traveller"
+        update="false"
+        insert="false"
+        fetch="join"
+    >
+<column name="TRAVELLER_ID" />
+   </many-to-one>
+    <property
+        name="travellerId"
+        type="java.lang.Long"
+    >
+<column name="TRAVELLER_ID" />
+  </property>
+
+    <property
+        name="tripDays"
+        type="java.lang.Integer"
+    >
+<column name="TRIP_DAYS" />
+  </property>
+
+
+</class>
+
+</hibernate-mapping>

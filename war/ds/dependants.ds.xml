@@ -1,0 +1,18 @@
+<DataSource 
+	ID="dependants"
+    dropExtraFields="true"
+    serverType="generic"
+    mappedBeanClass="com.skyquill.minder.model.Dependant"
+>
+	<fields>
+		<field name="id" 			type="text"  hidden="true" primaryKey="true"/>
+		<field name="travellerId" 	type="text" hidden="true" foreignKey="travellers.id"></field>
+		<field name="fullName" 		type="text"></field>
+		<field name="birthDate" 	type="date"></field>
+		<field name="comments" 		type="text"></field>
+		<field name="auditDateTime" type="datetime" canEdit="false"></field>
+		<field name="auditUserId" 	type="text" canEdit="false"></field>
+		<field name="version" 		type="number" hidden="true"></field>
+	</fields>
+    <serverObject lookupStyle="spring" bean="genericJdoDao"/>
+</DataSource>

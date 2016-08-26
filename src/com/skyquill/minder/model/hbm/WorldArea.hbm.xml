@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated 25-Dec-2009 8:45:28 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+
+<class 
+    name="com.skyquill.minder.model.WorldArea"
+    table="WORLDAREAS"
+>
+
+	<id 
+        name="id"
+        type="java.lang.Long"
+    >
+    
+<column name="ID" />
+	    <generator class="native">
+            <param name="max_lo">49</param>
+            <param name="sequence">WORLDAREAS_SEQ</param>
+		</generator>
+    </id>
+
+    <version
+        name="version"
+        type="java.lang.Integer"
+    >
+<column name="VERSION" />
+	</version>
+
+
+
+<component 
+    name="audit"
+    class="com.skyquill.minder.model.Audit">
+    
+<!-- TODO: handle properties and component -->    
+</component>	<set
+		name="countries"
+		inverse="true"
+		>
+		<key> 
+<column name="WORLDAREA_ID" />
+        </key>
+		<one-to-many 
+			 class="com.skyquill.minder.model.Country"
+			/>			
+	</set>
+    <property
+        name="name"
+        type="java.lang.String"
+    >
+<column name="NAME" length="40" />
+  </property>
+
+
+</class>
+
+</hibernate-mapping>

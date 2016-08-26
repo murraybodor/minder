@@ -1,0 +1,22 @@
+<DataSource 
+	ID="securityorientations"
+    dropExtraFields="true"
+    serverType="generic"
+    mappedBeanClass="com.skyquill.minder.model.SecurityOrientation"
+>
+	<fields>
+		<field name="id" 			type="text" hidden="true" primaryKey="true"></field>
+		<field name="travellerId" 	type="text" hidden="true" foreignKey="travellers.id"></field>
+		<field name="isNew" 		type="boolean"></field>
+		<field name="isDeleted" 	type="boolean"></field>
+		<field name="type" 			type="text"></field>
+		<field name="countryId" 	type="text" hidden="true" foreignKey="countries.id"></field>
+		<field name="name" 			type="text"></field>
+		<field name="orientationDate" type="date"></field>
+		<field name="comments" 		type="text"></field>
+		<field name="auditDateTime" type="datetime" canEdit="false" title="Last Changed"></field>
+		<field name="auditUserId" 	type="text" canEdit="false" title="By"></field>
+		<field name="version" 		type="number" hidden="true"></field>
+	</fields>
+    <serverObject lookupStyle="spring" bean="genericJdoDao"/>
+</DataSource>

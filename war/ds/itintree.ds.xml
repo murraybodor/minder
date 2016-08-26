@@ -1,0 +1,12 @@
+<DataSource 
+	ID="itintree"
+>
+	<fields>
+		<field name="id" 			type="number" primaryKey="true"></field>
+		<field name="parentId" 		type="number" foreignKey="itintree.id" rootValue="root"></field>
+		<field name="title" 		type="text"></field>
+		<field name="itineraryId" 	type="number"></field>
+		<field name="reservationId" type="number"></field>
+		<field name="dirty" 		type="boolean"></field>
+	</fields>
+</DataSource>

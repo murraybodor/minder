@@ -1,0 +1,66 @@
+<html>
+<head>
+	<style type="text/css">
+		body {
+		  background-color: white;
+		  font-family: Arial, sans-serif;
+		  font-size: smaller;
+		  margin: 20px 20px 20px 20px;
+		  width: 1055px;
+		}
+		.label {
+		  font-size: smaller;
+		  white-space: nowrap;  
+		}
+		.title {
+		  font-size: 125%;
+		  font-weight: bold;
+		  white-space: nowrap; 	 
+		}
+		.hr {
+		  border: 0;
+		  color: #6b869f;
+		  background-color: #6b869f;
+		  width: 1015px;
+		  height: 5px;
+		}
+	</style>
+	<title>Travel Minder - Login</title>
+</head>
+<body bgcolor="white">
+<table border="0" cellspacing="5" width="100%">
+	<tr valign="MIDDLE">
+		<td width="40%" align="right"><img src="images/logo.gif" alt="logo" /></td>
+	    <td align="left" class="title">Travel Minder - Login</td>
+    </tr>
+</table>
+<hr class="hr">
+<br>
+<form name="login" method="POST" action="j_spring_security_check">
+  <table border="0" cellspacing="5" width="100%">
+    <tr>
+      <th class="label" width="45%" align="right">Username:</th>
+      <td align="left"><input type="text" name="j_username"></td>
+    </tr>
+    <tr>
+      <th class="label" width="45%" align="right">Password:</th>
+      <td align="left"><input type="password" name="j_password"></td>
+    </tr>
+    <tr>
+      <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td align="left" ><input type="submit" value="Login"></td>
+    </tr>
+  </table>
+</form>
+<br>
+<hr class="hr">
+<script language="JavaScript">
+<!--
+document.login.j_username.focus();
+//-->
+</script>
+</body>
+</html>

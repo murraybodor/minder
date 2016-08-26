@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated 25-Dec-2009 8:45:28 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+
+<class 
+    name="com.skyquill.minder.model.Dependant"
+    table="DEPENDANTS"
+>
+
+	<id 
+        name="id"
+        type="java.lang.Long"
+    >
+    
+<column name="ID" />
+	    <generator class="native">
+            <param name="max_lo">49</param>
+            <param name="sequence">DEPENDANTS_SEQ</param>
+		</generator>
+    </id>
+
+    <version
+        name="version"
+        type="java.lang.Integer"
+    >
+<column name="VERSION" />
+	</version>
+
+
+
+<component 
+    name="audit"
+    class="com.skyquill.minder.model.Audit">
+    
+<!-- TODO: handle properties and component -->    
+</component>    <property
+        name="birthDate"
+        type="java.util.Date"
+    >
+<column name="BIRTH_DATE" />
+  </property>
+
+    <property
+        name="comments"
+        type="java.lang.String"
+    >
+<column name="COMMENTS" length="400" />
+  </property>
+
+    <property
+        name="fullName"
+        type="java.lang.String"
+    >
+<column name="FULL_NAME" length="400" />
+  </property>
+
+    <many-to-one
+	    name="traveller"
+	    class="com.skyquill.minder.model.Traveller"
+        fetch="join"
+    >
+<column name="TRAVELLER_ID" />
+   </many-to-one>
+
+</class>
+
+</hibernate-mapping>

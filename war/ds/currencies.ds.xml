@@ -1,0 +1,17 @@
+<DataSource 
+	ID="currencies"
+    dropExtraFields="true"
+    serverType="generic"
+    mappedBeanClass="com.skyquill.minder.model.Currency"
+>
+	<fields>
+		<field name="id" 			type="text"  hidden="true" primaryKey="true"/>
+		<field name="currencyCode" 	type="text"></field>
+		<field name="name" 			type="text"></field>
+		<field name="exchRateTo1Usd" type="float"></field>
+		<field name="auditDateTime" type="datetime"></field>
+		<field name="auditUserId" 	type="text"></field>
+		<field name="version" 		type="number"></field>
+	</fields>
+    <serverObject lookupStyle="spring" bean="genericJdoDao"/>
+</DataSource>

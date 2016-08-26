@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+   <session-factory>
+
+      <property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property> 
+      <property name="show_sql">true</property>
+      
+	  <!-- Use Hibernate's JDBC transaction factory (no JTA needed) -->
+ 	  <property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+      
+	  <!-- Enable Hibernate's automatic session context management -->
+<!--      <property name="current_session_context_class">thread</property>-->
+
+      <!-- Disable the second-level cache  -->
+      <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+
+       <!-- Class Mappings -->
+ 
+       <!-- Config -->
+       <mapping class="com.skyquill.minder.model.AdminAssistant" />
+<!--       <mapping class="com.skyquill.minder.model.AircraftModel" />-->
+       <mapping class="com.skyquill.minder.model.Airline" />
+       <mapping class="com.skyquill.minder.model.Airport" />
+	   <mapping class="com.skyquill.minder.model.BloodType" />
+       <mapping class="com.skyquill.minder.model.City" />
+       <mapping class="com.skyquill.minder.model.Country" />
+       <mapping class="com.skyquill.minder.model.Currency" />
+       <mapping class="com.skyquill.minder.model.Hotel" />
+       <mapping class="com.skyquill.minder.model.HotelChain" />
+       <mapping class="com.skyquill.minder.model.HotelFacility" />
+       <mapping class="com.skyquill.minder.model.InsuranceType" />
+       <mapping class="com.skyquill.minder.model.MedicalAssessmentType" />
+       <mapping class="com.skyquill.minder.model.MetaData" />
+       <mapping class="com.skyquill.minder.model.OtherDocType" />
+       <mapping class="com.skyquill.minder.model.ReserveSystemType" />
+       <mapping class="com.skyquill.minder.model.RoomType" />
+       <mapping class="com.skyquill.minder.model.SecurityOrientationType" />
+       <mapping class="com.skyquill.minder.model.SOSCardType" />
+       <mapping class="com.skyquill.minder.model.State" />
+       <mapping class="com.skyquill.minder.model.Supervisor" />
+       <mapping class="com.skyquill.minder.model.Type" />
+       <mapping class="com.skyquill.minder.model.VehicleType" />
+       <mapping class="com.skyquill.minder.model.WorldArea" />
+       <mapping class="com.skyquill.minder.model.VaccinationType" />
+       <mapping class="com.skyquill.minder.model.VisaType" />
+
+       <mapping class="com.skyquill.minder.model.UserProfile" />
+
+       <!-- Variable -->
+<!--       <mapping class="com.skyquill.minder.model.PersonalDetails" />-->
+       <mapping class="com.skyquill.minder.model.Dependant" />
+       <mapping class="com.skyquill.minder.model.NonEmploymentDetails" />
+       <mapping class="com.skyquill.minder.model.EmploymentDetails" />
+       <mapping class="com.skyquill.minder.model.Traveller" />
+       
+       <mapping class="com.skyquill.minder.model.Itinerary" />
+       <mapping class="com.skyquill.minder.model.Reservation" />
+       <mapping class="com.skyquill.minder.model.CostAllocation" />
+<!--       <mapping class="com.skyquill.minder.model.FareSchedule" />-->
+<!--       <mapping class="com.skyquill.minder.model.FlightDeparture" />-->
+<!--       <mapping class="com.skyquill.minder.model.FlightReservation" />-->
+<!--       <mapping class="com.skyquill.minder.model.FlightRoute" />-->
+<!--       <mapping class="com.skyquill.minder.model.HotelReservation" />-->
+<!--       <mapping class="com.skyquill.minder.model.OtherReservation" />-->
+<!--       <mapping class="com.skyquill.minder.model.VehicleReservation" />-->
+
+       <mapping class="com.skyquill.minder.model.Insurance" />
+       <mapping class="com.skyquill.minder.model.SOSCoverage" />
+       <mapping class="com.skyquill.minder.model.MedicalAssessment" />
+       <mapping class="com.skyquill.minder.model.Passport" />
+       <mapping class="com.skyquill.minder.model.SecurityOrientation" />
+       <mapping class="com.skyquill.minder.model.SecurityProfile" />
+       <mapping class="com.skyquill.minder.model.Vaccination" />
+       <mapping class="com.skyquill.minder.model.Visa" />
+
+   </session-factory>
+</hibernate-configuration> 

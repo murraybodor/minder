@@ -1,0 +1,28 @@
+<DataSource 
+	ID="passports"
+    dropExtraFields="true"
+    serverType="generic"
+    mappedBeanClass="com.skyquill.minder.model.Passport"
+>
+	<fields>
+		<field name="id" 			type="text"  hidden="true" primaryKey="true"/>
+		<field name="travellerId" 	type="text" hidden="true" foreignKey="travellers.id"></field>
+		<field name="isNew" 		type="boolean"></field>
+		<field name="isDeleted" 	type="boolean"></field>
+		<field name="countryId" 	type="text" foreignKey="countries.id"></field>
+		<field name="passportNumber" type="text"></field>
+		<field name="issueDate" 	type="date"></field>
+		<field name="firstName" 	type="text"></field>
+		<field name="middleName" 	type="text"></field>
+		<field name="lastName" 		type="text"></field>
+		<field name="placeOfIssue" 	type="text"></field>
+		<field name="expiryDate" 	type="date"></field>
+		<field name="remindOnExpiry" type="boolean" title="Reminder?"></field>
+		<field name="remindDate" 	type="date"></field>
+		<field name="comments" 		type="text"></field>
+		<field name="auditDateTime" type="datetime" canEdit="false" title="Last Changed"></field>
+		<field name="auditUserId" 	type="text" canEdit="false" title="By"></field>
+		<field name="version" 		type="number" hidden="true"></field>
+	</fields>
+    <serverObject lookupStyle="spring" bean="genericJdoDao"/>
+</DataSource>

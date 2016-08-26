@@ -1,0 +1,17 @@
+<DataSource 
+	ID="states"
+    dropExtraFields="true"
+    serverType="generic"
+    mappedBeanClass="com.skyquill.minder.model.State"
+>
+	<fields>
+		<field name="id" 			type="text" hidden="true" primaryKey="true"></field>
+		<field name="countryId" 	type="text" foreignKey="countries.id"></field>
+		<field name="abbrev" 		type="text"></field>
+		<field name="name" 			type="text"></field>
+		<field name="auditDateTime" type="datetime"></field>
+		<field name="auditUserId" 	type="text"></field>
+		<field name="version" 		type="number"></field>
+	</fields>
+    <serverObject lookupStyle="spring" bean="genericJdoDao"/>
+</DataSource>

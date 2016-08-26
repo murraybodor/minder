@@ -1,0 +1,19 @@
+<DataSource 
+	ID="userprofiles"
+    dropExtraFields="true"
+    serverType="generic"
+    mappedBeanClass="com.skyquill.minder.model.UserProfile"
+>
+	<fields>
+		<field name="id" 			type="text" hidden="true" primaryKey="true"></field>
+		<field name="userId" 		type="text"></field>
+		<field name="currencyId" 	type="text" foreignKey="currencies.id"></field>
+		<field name="dateFormat" 	type="text"></field>
+		<field name="emailAddress" 	type="text"></field>
+		<field name="timeZone" 		type="number"></field>
+		<field name="auditDateTime" type="datetime"></field>
+		<field name="auditUserId" 	type="text"></field>
+		<field name="version" 		type="number"></field>
+	</fields>
+    <serverObject lookupStyle="spring" bean="genericJdoDao"/>
+</DataSource>

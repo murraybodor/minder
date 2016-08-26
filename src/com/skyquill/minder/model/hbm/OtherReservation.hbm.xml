@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated 25-Dec-2009 8:45:28 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+
+<joined-subclass 
+    name="com.skyquill.minder.model.OtherReservation"
+    extends="com.skyquill.minder.model.Reservation"
+    table="OTHERRESERVATIONS"
+>
+
+ <key> 
+<column name="ID" not-null="true" />
+ </key>
+
+
+    <many-to-one
+	    name="city"
+	    class="com.skyquill.minder.model.City"
+        update="false"
+        insert="false"
+        fetch="join"
+    >
+<column name="CITY_ID" />
+   </many-to-one>
+    <property
+        name="cityId"
+        type="java.lang.Long"
+    >
+<column name="CITY_ID" />
+  </property>
+
+    <property
+        name="comments"
+        type="java.lang.String"
+    >
+<column name="COMMENTS" length="400" />
+  </property>
+
+    <property
+        name="cost"
+        type="java.lang.Float"
+    >
+<column name="COST" />
+  </property>
+
+    <property
+        name="costCenter"
+        type="java.lang.String"
+    >
+<column name="COST_CENTER" length="40" />
+  </property>
+
+    <many-to-one
+	    name="currency"
+	    class="com.skyquill.minder.model.Currency"
+        update="false"
+        insert="false"
+        fetch="join"
+    >
+<column name="CURRENCY_ID" />
+   </many-to-one>
+    <property
+        name="currencyId"
+        type="java.lang.Long"
+    >
+<column name="CURRENCY_ID" />
+  </property>
+
+    <property
+        name="needsFollowUp"
+        type="java.lang.Boolean"
+    >
+<column name="FOLLOWUP" />
+  </property>
+
+    <property
+        name="purpose"
+        type="java.lang.String"
+    >
+<column name="PURPOSE" length="240" />
+  </property>
+
+    <property
+        name="resvDate"
+        type="java.util.Date"
+    >
+<column name="RESV_DATE" />
+  </property>
+
+
+</joined-subclass>
+
+</hibernate-mapping>

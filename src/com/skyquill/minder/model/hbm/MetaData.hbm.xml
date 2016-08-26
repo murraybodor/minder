@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated 25-Dec-2009 8:45:28 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+
+<class 
+    name="com.skyquill.minder.model.MetaData"
+    table="METADATA"
+>
+
+	<id 
+        name="id"
+        type="java.lang.Long"
+    >
+    
+<column name="ID" />
+	    <generator class="native">
+            <param name="max_lo">49</param>
+            <param name="sequence">METADATA_SEQ</param>
+		</generator>
+    </id>
+
+    <version
+        name="version"
+        type="java.lang.Integer"
+    >
+<column name="VERSION" />
+	</version>
+
+
+
+<component 
+    name="audit"
+    class="com.skyquill.minder.model.Audit">
+    
+<!-- TODO: handle properties and component -->    
+</component>    <property
+        name="blobValue"
+        type="org.hibernate.type.PrimitiveByteArrayBlobType"
+    >
+<column name="BLOB_VALUE" />
+  </property>
+
+    <property
+        name="booleanValue"
+        type="java.lang.Boolean"
+    >
+<column name="BOOL_VALUE" />
+  </property>
+
+    <property
+        name="dateValue"
+        type="java.util.Date"
+    >
+<column name="DATE_VALUE" />
+  </property>
+
+    <property
+        name="metaDescription"
+        type="java.lang.String"
+    >
+<column name="META_DESC" length="80" />
+  </property>
+
+    <property
+        name="metaKey"
+        type="java.lang.String"
+    >
+<column name="META_KEY" length="40" not-null="true" />
+  </property>
+
+    <property
+        name="metaSuppInfo"
+        type="java.lang.String"
+    >
+<column name="SUPP_INFO" length="80" />
+  </property>
+
+    <property
+        name="numericValue"
+        type="java.lang.Integer"
+    >
+<column name="NUM_VALUE" />
+  </property>
+
+    <property
+        name="stringValue"
+        type="java.lang.String"
+    >
+<column name="STR_VALUE" length="80" />
+  </property>
+
+
+</class>
+
+</hibernate-mapping>

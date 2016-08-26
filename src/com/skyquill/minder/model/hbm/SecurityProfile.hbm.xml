@@ -1,0 +1,337 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated 25-Dec-2009 8:45:28 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+
+<class 
+    name="com.skyquill.minder.model.SecurityProfile"
+    table="SECURITYPROFILES"
+>
+
+	<id 
+        name="id"
+        type="java.lang.Long"
+    >
+    
+<column name="ID" />
+	    <generator class="native">
+            <param name="max_lo">49</param>
+            <param name="sequence">SECURITYPROFILES_SEQ</param>
+		</generator>
+    </id>
+
+    <version
+        name="version"
+        type="java.lang.Integer"
+    >
+<column name="VERSION" />
+	</version>
+
+
+    <property
+        name="activityDislikes"
+        type="java.lang.String"
+    >
+<column name="ACTIVITY_DISLIKES" length="600" />
+  </property>
+
+    <property
+        name="activityParticipates"
+        type="java.lang.String"
+    >
+<column name="ACTIVITY_PARTICIPATES" length="600" />
+  </property>
+
+    <property
+        name="allergies"
+        type="java.lang.String"
+    >
+<column name="ALLERGIES" length="600" />
+  </property>
+
+
+<component 
+    name="audit"
+    class="com.skyquill.minder.model.Audit">
+    
+<!-- TODO: handle properties and component -->    
+</component>    <property
+        name="bloodType"
+        type="java.lang.String"
+    >
+<column name="BLOOD_TYPE" length="8" />
+  </property>
+
+    <property
+        name="codePhrase"
+        type="java.lang.String"
+    >
+<column name="CODE_PHRASE" length="600" />
+  </property>
+
+    <property
+        name="contactSolution"
+        type="java.lang.String"
+    >
+<column name="CONTACT_SOLN" length="40" />
+  </property>
+
+    <property
+        name="contacts"
+        type="java.lang.Boolean"
+    >
+<column name="CONTACTS" />
+  </property>
+
+    <property
+        name="dentAddress"
+        type="java.lang.String"
+    >
+<column name="DENTIST_ADDR" length="600" />
+  </property>
+
+    <property
+        name="dentConditions"
+        type="java.lang.String"
+    >
+<column name="DENTAL_CONDITIONS" length="600" />
+  </property>
+
+    <property
+        name="dentName"
+        type="java.lang.String"
+    >
+<column name="DENTIST_NAME" length="240" />
+  </property>
+
+    <property
+        name="dentPhone"
+        type="java.lang.String"
+    >
+<column name="DENTIST_PHONE" length="40" />
+  </property>
+
+    <property
+        name="dislikes"
+        type="java.lang.String"
+    >
+<column name="DISLIKES" length="600" />
+  </property>
+
+    <property
+        name="doctorAddress"
+        type="java.lang.String"
+    >
+<column name="DOCTOR_ADDRESS" length="600" />
+  </property>
+
+    <property
+        name="doctorName"
+        type="java.lang.String"
+    >
+<column name="DOCTOR_NAME" length="240" />
+  </property>
+
+    <property
+        name="doctorPhone"
+        type="java.lang.String"
+    >
+<column name="DOCTOR_PHONE" length="40" />
+  </property>
+
+    <property
+        name="emergContact1CellPhone"
+        type="java.lang.String"
+    >
+<column name="EMERG_CONTACT1_CELLPHONE" length="40" />
+  </property>
+
+    <property
+        name="emergContact1DayPhone"
+        type="java.lang.String"
+    >
+<column name="EMERG_CONTACT1_DAYPHONE" length="40" />
+  </property>
+
+    <property
+        name="emergContact1EvePhone"
+        type="java.lang.String"
+    >
+<column name="EMERG_CONTACT1_EVEPHONE" length="40" />
+  </property>
+
+    <property
+        name="emergContact1LocAlt"
+        type="java.lang.String"
+    >
+<column name="EMERG_CONTACT1_ALT" length="80" />
+  </property>
+
+    <property
+        name="emergContact1Name"
+        type="java.lang.String"
+    >
+<column name="EMERG_CONTACT1_NAME" length="240" />
+  </property>
+
+    <property
+        name="emergContact1Rship"
+        type="java.lang.String"
+    >
+<column name="EMERG_CONTACT1_RSHIP" length="80" />
+  </property>
+
+    <property
+        name="emergContact2CellPhone"
+        type="java.lang.String"
+    >
+<column name="EMERG_CONTACT2_CELLPHONE" length="40" />
+  </property>
+
+    <property
+        name="emergContact2DayPhone"
+        type="java.lang.String"
+    >
+<column name="EMERG_CONTACT2_DAYPHONE" length="40" />
+  </property>
+
+    <property
+        name="emergContact2EvePhone"
+        type="java.lang.String"
+    >
+<column name="EMERG_CONTACT2_EVEPHONE" length="40" />
+  </property>
+
+    <property
+        name="emergContact2LocAlt"
+        type="java.lang.String"
+    >
+<column name="EMERG_CONTACT2_ALT" length="240" />
+  </property>
+
+    <property
+        name="emergContact2Name"
+        type="java.lang.String"
+    >
+<column name="EMERG_CONTACT2_NAME" length="240" />
+  </property>
+
+    <property
+        name="emergContact2Rship"
+        type="java.lang.String"
+    >
+<column name="EMERG_CONTACT2_RSHIP" length="80" />
+  </property>
+
+    <property
+        name="glasses"
+        type="java.lang.Boolean"
+    >
+<column name="GLASSES" />
+  </property>
+
+    <property
+        name="homeAddress"
+        type="java.lang.String"
+    >
+<column name="HOME_ADDRESS" length="1000" />
+  </property>
+
+    <property
+        name="likes"
+        type="java.lang.String"
+    >
+<column name="LIKES" length="600" />
+  </property>
+
+    <property
+        name="optoAddress"
+        type="java.lang.String"
+    >
+<column name="OPTO_ADDRESS" length="600" />
+  </property>
+
+    <property
+        name="optoName"
+        type="java.lang.String"
+    >
+<column name="OPTO_NAME" length="240" />
+  </property>
+
+    <property
+        name="optoPhone"
+        type="java.lang.String"
+    >
+<column name="OPTO_PHONE" length="40" />
+  </property>
+
+    <property
+        name="pharmAddress"
+        type="java.lang.String"
+    >
+<column name="PHARM_ADDRESS" length="600" />
+  </property>
+
+    <property
+        name="pharmName"
+        type="java.lang.String"
+    >
+<column name="PHARM_NAME" length="240" />
+  </property>
+
+    <property
+        name="pharmPhone"
+        type="java.lang.String"
+    >
+<column name="PHARM_PHONE" length="40" />
+  </property>
+
+    <property
+        name="physDescription"
+        type="java.lang.String"
+    >
+<column name="PHYSICAL_DESCRIPTION" length="1000" />
+  </property>
+
+    <property
+        name="prescripLe"
+        type="java.lang.String"
+    >
+<column name="OPTO_PRESC_LE" length="8" />
+  </property>
+
+    <property
+        name="prescripRe"
+        type="java.lang.String"
+    >
+<column name="OPTO_PRESC_RE" length="8" />
+  </property>
+
+    <many-to-one
+	    name="traveller"
+	    class="com.skyquill.minder.model.Traveller"
+        fetch="join"
+    >
+<column name="TRAVELLER_ID" unique="true" />
+   </many-to-one>
+    <property
+        name="visionConditions"
+        type="java.lang.String"
+    >
+<column name="VISION_COND" length="600" />
+  </property>
+
+    <property
+        name="vitalPrescrip"
+        type="java.lang.String"
+    >
+<column name="VITAL_PRESC" length="600" />
+  </property>
+
+
+</class>
+
+</hibernate-mapping>

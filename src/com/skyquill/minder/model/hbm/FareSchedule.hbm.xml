@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated 25-Dec-2009 8:45:28 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+
+<class 
+    name="com.skyquill.minder.model.FareSchedule"
+    table="FARESCHEDULES"
+>
+
+	<id 
+        name="id"
+        type="java.lang.Long"
+    >
+    
+<column name="ID" />
+	    <generator class="native">
+            <param name="max_lo">49</param>
+            <param name="sequence">FARESCHEDULES_SEQ</param>
+		</generator>
+    </id>
+
+    <version
+        name="version"
+        type="java.lang.Integer"
+    >
+<column name="VERSION" />
+	</version>
+
+
+
+<component 
+    name="audit"
+    class="com.skyquill.minder.model.Audit">
+    
+<!-- TODO: handle properties and component -->    
+</component>    <property
+        name="cabinClass"
+        type="java.lang.String"
+    >
+<column name="CABIN_CLASS" length="6" />
+  </property>
+
+    <property
+        name="endDate"
+        type="java.util.Date"
+    >
+<column name="END_DATE" />
+  </property>
+
+    <property
+        name="endorsements"
+        type="java.lang.String"
+    >
+<column name="ENDORSEMENTS" length="240" />
+  </property>
+
+    <property
+        name="fareCategory"
+        type="java.lang.String"
+    >
+<column name="FARE_CATEGORY" length="6" />
+  </property>
+
+    <many-to-one
+	    name="flightRoute"
+	    class="com.skyquill.minder.model.FlightRoute"
+        fetch="join"
+    >
+<column name="FLIGHT_ROUTE_ID" />
+   </many-to-one>
+    <property
+        name="otherFee"
+        type="java.lang.Float"
+    >
+<column name="OTHER_FEE" />
+  </property>
+
+    <property
+        name="standardPrice"
+        type="java.lang.Float"
+    >
+<column name="STANDARD_PRICE" />
+  </property>
+
+    <property
+        name="startDate"
+        type="java.util.Date"
+    >
+<column name="START_DATE" />
+  </property>
+
+    <property
+        name="taxRate"
+        type="java.lang.Float"
+    >
+<column name="TAX_RATE" />
+  </property>
+
+
+</class>
+
+</hibernate-mapping>

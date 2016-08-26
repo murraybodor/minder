@@ -1,0 +1,21 @@
+<DataSource 
+	ID="hotelreservations"
+    dropExtraFields="true"
+    serverType="generic"
+    mappedBeanClass="com.skyquill.minder.model.HotelReservation"
+    inheritsFrom="reservations"
+>
+	<fields>
+		<field name="cityId" 	type="text" foreignKey="cities.id"></field>
+		<field name="arrivalDate" 	type="date"></field>
+		<field name="checkoutDate" 	type="date"></field>
+		<field name="hotelId" 	type="text" foreignKey="hotels.id"></field>
+		<field name="otherHotel" 	type="text"></field>
+		<field name="cost" 			type="float"></field>
+		<field name="currencyId" 	type="text" foreignKey="currencies.id"></field>
+		<field name="costCenter" 	type="text"></field>
+		<field name="roomType" 		type="text"></field>
+		<field name="comments" 		type="text"></field>
+	</fields>
+    <serverObject lookupStyle="spring" bean="genericJdoDao"/>
+</DataSource>

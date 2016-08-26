@@ -1,0 +1,197 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated 25-Dec-2009 8:45:28 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+
+<class 
+    name="com.skyquill.minder.model.FlightRoute"
+    table="FLIGHTROUTES"
+>
+
+	<id 
+        name="id"
+        type="java.lang.Long"
+    >
+    
+<column name="ID" />
+	    <generator class="native">
+            <param name="max_lo">49</param>
+            <param name="sequence">FLIGHTROUTES_SEQ</param>
+		</generator>
+    </id>
+
+    <version
+        name="version"
+        type="java.lang.Integer"
+    >
+<column name="VERSION" />
+	</version>
+
+
+    <many-to-one
+	    name="aircraft"
+	    class="com.skyquill.minder.model.AircraftModel"
+        fetch="join"
+    >
+<column name="AIRCRAFTMODEL_ID" />
+   </many-to-one>
+    <many-to-one
+	    name="airline"
+	    class="com.skyquill.minder.model.Airline"
+        update="false"
+        insert="false"
+        fetch="join"
+    >
+<column name="AIRLINE_ID" />
+   </many-to-one>
+    <property
+        name="airlineId"
+        type="java.lang.Long"
+    >
+<column name="AIRLINE_ID" />
+  </property>
+
+
+<component 
+    name="audit"
+    class="com.skyquill.minder.model.Audit">
+    
+<!-- TODO: handle properties and component -->    
+</component>    <property
+        name="availableDays"
+        type="java.lang.String"
+    >
+<column name="AVAILABLE_DAYS" length="7" />
+  </property>
+
+    <property
+        name="comments"
+        type="java.lang.String"
+    >
+<column name="COMMENTS" length="400" />
+  </property>
+
+    <property
+        name="connecting"
+        type="java.lang.Boolean"
+    >
+<column name="CONNECTING" />
+  </property>
+
+    <many-to-one
+	    name="destAirport"
+	    class="com.skyquill.minder.model.Airport"
+        update="false"
+        insert="false"
+        fetch="join"
+    >
+<column name="DEST_AIRPORT_ID" />
+   </many-to-one>
+    <property
+        name="destAirportId"
+        type="java.lang.Long"
+    >
+<column name="DEST_AIRPORT_ID" />
+  </property>
+
+	<bag
+		name="fareSchedules"
+        inverse="true"
+	>
+	
+ 		<key> 
+<column name="FLIGHT_ROUTE_ID" />
+        </key>
+		<one-to-many 
+			 class="com.skyquill.minder.model.FareSchedule"
+			/>			
+     </bag>    <property
+        name="flightCategory"
+        type="java.lang.String"
+    >
+<column name="FLIGHT_CATEGORY" length="6" />
+  </property>
+
+	<bag
+		name="flightDepartures"
+        inverse="true"
+	>
+	
+ 		<key> 
+<column name="FLIGHTROUTE_ID" />
+        </key>
+		<one-to-many 
+			 class="com.skyquill.minder.model.FlightDeparture"
+			/>			
+     </bag>    <property
+        name="flightDistance"
+        type="java.lang.Integer"
+    >
+<column name="FLIGHT_DISTANCE" />
+  </property>
+
+    <property
+        name="flightNumber"
+        type="java.lang.String"
+    >
+<column name="FLIGHT_NUMBER" length="8" />
+  </property>
+
+    <property
+        name="locator"
+        type="java.lang.String"
+    >
+<column name="LOCATOR" length="12" />
+  </property>
+
+    <property
+        name="meal"
+        type="java.lang.Boolean"
+    >
+<column name="MEAL" />
+  </property>
+
+    <property
+        name="movie"
+        type="java.lang.Boolean"
+    >
+<column name="MOVIE" />
+  </property>
+
+    <property
+        name="numberOfStops"
+        type="java.lang.Integer"
+    >
+<column name="NUMBER_OF_STOPS" />
+  </property>
+
+    <many-to-one
+	    name="originAirport"
+	    class="com.skyquill.minder.model.Airport"
+        update="false"
+        insert="false"
+        fetch="join"
+    >
+<column name="ORIGIN_AIRPORT_ID" />
+   </many-to-one>
+    <property
+        name="originAirportId"
+        type="java.lang.Long"
+    >
+<column name="ORIGIN_AIRPORT_ID" />
+  </property>
+
+    <property
+        name="system"
+        type="java.lang.String"
+    >
+<column name="SYSTEM" length="6" />
+  </property>
+
+
+</class>
+
+</hibernate-mapping>

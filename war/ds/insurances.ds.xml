@@ -1,0 +1,24 @@
+<DataSource 
+	ID="insurances"
+    dropExtraFields="true"
+    serverType="generic"
+    mappedBeanClass="com.skyquill.minder.model.Insurance"
+>
+	<fields>
+		<field name="id" 			type="text"  hidden="true" primaryKey="true"/>
+		<field name="travellerId" 	type="text"  hidden="true" foreignKey="travellers.id"></field>
+		<field name="isNew" 		type="boolean"></field>
+		<field name="isDeleted" 	type="boolean"></field>
+		<field name="type" 			type="text"></field>
+		<field name="provider" 		type="text"></field>
+		<field name="policyNum" 	type="text"></field>
+		<field name="issueDate" 	type="date"></field>
+		<field name="expiryDate" 	type="date"></field>
+		<field name="policyContact" type="text"></field>
+		<field name="comments" 		type="text"></field>
+		<field name="auditDateTime" type="datetime" canEdit="false" title="Last Changed"></field>
+		<field name="auditUserId" 	type="text" canEdit="false" title="By"></field>
+		<field name="version" 		type="number" hidden="true"></field>
+	</fields>
+    <serverObject lookupStyle="spring" bean="genericJdoDao"/>
+</DataSource>

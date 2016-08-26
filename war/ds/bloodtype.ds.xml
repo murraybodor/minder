@@ -1,0 +1,13 @@
+<DataSource 
+	ID="bloodtype"
+    dropExtraFields="true"
+    serverType="generic"
+    mappedBeanClass="com.skyquill.minder.model.BloodType"
+>
+	<fields>
+		<field name="id" 		type="text"  hidden="true" primaryKey="true"/>
+		<field name="code" 		type="text"></field>
+		<field name="desc" 		type="text"></field>
+	</fields>
+    <serverObject lookupStyle="spring" bean="genericJdoDao"/>
+</DataSource>

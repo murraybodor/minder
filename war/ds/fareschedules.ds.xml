@@ -1,0 +1,23 @@
+<DataSource 
+	ID="fareschedules"
+    dropExtraFields="true"
+    serverType="generic"
+    mappedBeanClass="com.skyquill.minder.model.FareSchedule"
+>
+	<fields>
+		<field name="id" 			type="text"  hidden="true" primaryKey="true"/>
+		<field name="flightRouteId"	type="text" foreignKey="flightroutes.id"></field>
+		<field name="startDate" 	type="date"></field>
+		<field name="endDate" 		type="date"></field>
+		<field name="cabinClass"	type="text"></field>
+		<field name="endorsements" 	type="text"></field>
+		<field name="fareCategory" 	type="text"></field>
+		<field name="standardPrice" type="float"></field>
+		<field name="taxRate" 		type="float"></field>
+		<field name="otherFee" 		type="float"></field>
+		<field name="auditDateTime" type="datetime"></field>
+		<field name="auditUserId" 	type="text"></field>
+		<field name="version" 		type="number"></field>
+	</fields>
+    <serverObject lookupStyle="spring" bean="genericJdoDao"/>
+</DataSource>

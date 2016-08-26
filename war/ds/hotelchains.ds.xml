@@ -1,0 +1,18 @@
+<DataSource 
+	ID="hotelchains"
+    dropExtraFields="true"
+    serverType="generic"
+    mappedBeanClass="com.skyquill.minder.model.HotelChain"
+>
+	<fields>
+		<field name="id" 			type="text"  hidden="true" primaryKey="true"/>
+		<field name="name" 			type="text"></field>
+		<field name="active" 		type="number"></field>
+		<field name="preferredOrder" type="number"></field>
+		<field name="comments" 		type="text"></field>
+		<field name="auditDateTime" type="datetime"></field>
+		<field name="auditUserId" 	type="text"></field>
+		<field name="version" 		type="number"></field>
+	</fields>
+    <serverObject lookupStyle="spring" bean="genericJdoDao"/>
+</DataSource>

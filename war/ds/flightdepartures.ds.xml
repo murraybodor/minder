@@ -1,0 +1,23 @@
+<DataSource 
+	ID="flightdepartures"
+    dropExtraFields="true"
+    serverType="generic"
+    mappedBeanClass="com.skyquill.minder.model.FlightDeparture"
+>
+	<fields>
+		<field name="id" 			type="text"  hidden="true" primaryKey="true"/>
+		<field name="flightRouteId" type="text" foreignKey="flightroutes.id"></field>
+		<field name="departureDate" type="date"></field>
+		<field name="departureTimeHrs" type="number"></field>
+		<field name="departureTimeMins" type="number"></field>
+		<field name="arrivalDate" 	type="date"></field>
+		<field name="arrivalTimeHrs" type="number"></field>
+		<field name="arrivalTimeMins" type="number"></field>
+		<field name="flightStatus"	type="text"></field>
+		<field name="comments" 		type="text"></field>
+		<field name="auditDateTime" type="datetime"></field>
+		<field name="auditUserId" 	type="text"></field>
+		<field name="version" 		type="number"></field>
+	</fields>
+    <serverObject lookupStyle="spring" bean="genericJdoDao"/>
+</DataSource>

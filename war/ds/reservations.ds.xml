@@ -1,0 +1,45 @@
+<DataSource 
+	ID="reservations"
+    dropExtraFields="true"
+    serverType="generic"
+    mappedBeanClass="com.skyquill.minder.model.Reservation"
+>
+	<fields>
+		<field name="id" 			type="text"  hidden="true" primaryKey="true"/>
+		<field name="itineraryId" 	type="text" hidden="true" foreignKey="itineraries.id"></field>
+		<field name="resType" 		type="text"></field>
+		<field name="order" 		type="number"></field>
+		
+		<field name="airlineId" 	type="text" hidden="true" foreignKey="airlines.id"></field>
+		<field name="flightNumber"	type="text"></field>
+		<field name="originAirportId" 	type="text" hidden="true" foreignKey="airports.id"></field>
+		<field name="destAirportId" 	type="text" hidden="true" foreignKey="airports.id"></field>
+		
+		<field name="cityId" 	type="text" hidden="true" foreignKey="cities.id"></field>
+		<field name="hotelId" 	type="text" hidden="true" foreignKey="hotels.id"></field>
+		<field name="otherHotel" 	type="text"></field>
+		<field name="roomType" 		type="text"></field>
+		
+		<field name="rentalAgency" 	type="text"></field>
+		<field name="vehicleType" 	type="text"></field>
+		
+		<field name="resvBeginDate" type="date"></field>
+		<field name="resvBeginTime" type="text"></field>
+		<field name="resvEndDate" 	type="date"></field>
+		<field name="resvEndTime" 	type="text"></field>
+		
+		<field name="conf" 			type="text"></field>
+		<field name="needsFollowUp"	type="text"></field>
+		
+		<field name="cost" 			type="float"></field>
+		<field name="currencyId" 	type="text" foreignKey="currencies.id"></field>
+		<field name="costCenter" 	type="text"></field>
+		<field name="comments" 		type="text"></field>
+		<field name="displayText" 	type="text"></field>
+		
+		<field name="auditDateTime" type="datetime" canEdit="false" title="Last Changed"></field>
+		<field name="auditUserId" 	type="text" canEdit="false" title="By"></field>
+		<field name="version" 		type="number" hidden="true"></field>
+	</fields>
+    <serverObject lookupStyle="spring" bean="genericJdoDao"/>
+</DataSource>

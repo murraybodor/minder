@@ -1,0 +1,21 @@
+<DataSource 
+	ID="medicalassessments"
+    dropExtraFields="true"
+    serverType="generic"
+    mappedBeanClass="com.skyquill.minder.model.MedicalAssessment"
+>
+	<fields>
+		<field name="id" 			type="text"  hidden="true" primaryKey="true"/>
+		<field name="travellerId" 	type="text"  hidden="true" foreignKey="travellers.id"></field>
+		<field name="isNew" 		type="boolean"></field>
+		<field name="isDeleted" 	type="boolean"></field>
+		<field name="countryId" 	type="text" foreignKey="countries.id"></field>
+		<field name="assessmentType" type="text"></field>
+		<field name="assessmentDate" type="date"></field>
+		<field name="comments" 		type="text"></field>
+		<field name="auditDateTime" type="datetime" canEdit="false" title="Last Changed"></field>
+		<field name="auditUserId" 	type="text" canEdit="false" title="By"></field>
+		<field name="version" 		type="number" hidden="true"></field>
+	</fields>
+    <serverObject lookupStyle="spring" bean="genericJdoDao"/>
+</DataSource>

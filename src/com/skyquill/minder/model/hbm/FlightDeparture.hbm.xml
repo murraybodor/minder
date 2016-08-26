@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated 25-Dec-2009 8:45:28 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+
+<class 
+    name="com.skyquill.minder.model.FlightDeparture"
+    table="FLIGHTDEPARTURES"
+>
+
+	<id 
+        name="id"
+        type="java.lang.Long"
+    >
+    
+<column name="ID" />
+	    <generator class="native">
+            <param name="max_lo">49</param>
+            <param name="sequence">FLIGHTDEPARTURES_SEQ</param>
+		</generator>
+    </id>
+
+    <version
+        name="version"
+        type="java.lang.Integer"
+    >
+<column name="VERSION" />
+	</version>
+
+
+    <property
+        name="arrivalDate"
+        type="java.util.Date"
+    >
+<column name="ARRIVAL_DATE" />
+  </property>
+
+    <property
+        name="arrivalTimeHrs"
+        type="java.lang.Integer"
+    >
+<column name="ARRIVAL_TIME_HRS" />
+  </property>
+
+    <property
+        name="arrivalTimeMins"
+        type="java.lang.Integer"
+    >
+<column name="ARRIVAL_TIME_MINS" />
+  </property>
+
+
+<component 
+    name="audit"
+    class="com.skyquill.minder.model.Audit">
+    
+<!-- TODO: handle properties and component -->    
+</component>    <property
+        name="comments"
+        type="java.lang.String"
+    >
+<column name="COMMENTS" length="400" />
+  </property>
+
+    <property
+        name="departureDate"
+        type="java.util.Date"
+    >
+<column name="DEPARTURE_DATE" />
+  </property>
+
+    <property
+        name="departureTimeHrs"
+        type="java.lang.Integer"
+    >
+<column name="DEPARTURE_TIME_HRS" />
+  </property>
+
+    <property
+        name="departureTimeMins"
+        type="java.lang.Integer"
+    >
+<column name="DEPARTURE_TIME_MINS" />
+  </property>
+
+	<bag
+		name="flightReservations"
+        inverse="true"
+	>
+	
+ 		<key> 
+<column name="FLIGHTDEPARTURE_ID" />
+        </key>
+		<one-to-many 
+			 class="com.skyquill.minder.model.FlightReservation"
+			/>			
+     </bag>    <many-to-one
+	    name="flightRoute"
+	    class="com.skyquill.minder.model.FlightRoute"
+        fetch="join"
+    >
+<column name="FLIGHTROUTE_ID" />
+   </many-to-one>
+    <property
+        name="flightStatus"
+        type="java.lang.String"
+    >
+<column name="FLIGHT_STATUS" length="6" />
+  </property>
+
+
+</class>
+
+</hibernate-mapping>

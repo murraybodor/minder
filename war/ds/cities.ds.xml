@@ -1,0 +1,20 @@
+<DataSource 
+	ID="cities"
+    dropExtraFields="true"
+    serverType="generic"
+    mappedBeanClass="com.skyquill.minder.model.City"
+>
+	<fields>
+		<field name="id" 			type="text"  hidden="true" primaryKey="true"/>
+		<field name="countryId" 	type="text" foreignKey="countries.id"></field>
+		<field name="stateId" 		type="text" foreignKey="states.id"></field>
+		<field name="name" 			type="text"></field>
+		<field name="timeZone" 		type="float"></field>
+		<field name="latitude" 		type="float"></field>
+		<field name="longitude" 	type="float"></field>
+		<field name="auditDateTime" type="datetime"></field>
+		<field name="auditUserId" 	type="text"></field>
+		<field name="version" 		type="number"></field>
+	</fields>
+    <serverObject lookupStyle="spring" bean="genericJdoDao"/>
+</DataSource>

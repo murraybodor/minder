@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="Minder2" default="build" basedir=".">
+  <!-- Configure path to GWT SDK -->
+  <property environment="env"/>
+  <property name="gwt.sdk" value="C:\dev\gwt-2.0.4"/>
+
+  <fail unless="gwt.sdk" message="You must set the GWT_HOME environment variable to point to your GWT SDK"/>
+
+
+  <path id="project.class.path">
+    <pathelement location="war/WEB-INF/classes"/>
+    <pathelement location="${gwt.sdk}/gwt-user.jar"/>
+    <fileset dir="${gwt.sdk}" includes="gwt-dev*.jar"/>
+    <!-- Add any additional non-server libs (such as JUnit) -->
+    <fileset dir="war/WEB-INF/lib" includes="**/*.jar"/>
+  </path>
+
+
+  <target name="javac" description="Compile java source">
+    <mkdir dir="war/WEB-INF/classes"/>
+    <javac srcdir="src" includes="**" encoding="utf-8"
+        destdir="war/WEB-INF/classes"
+        source="1.6" target="1.6" nowarn="true"
+        debug="true" debuglevel="lines,vars,source">
+      <classpath refid="project.class.path"/>
+    </javac>
+    <copy todir="war/WEB-INF/classes">
+      <fileset dir="src" excludes="**/*.java"/>
+    </copy>
+  </target>
+
+  <target name="gwtc" depends="javac" description="GWT compile to JavaScript">
+    <java failonerror="true" fork="true" classname="com.google.gwt.dev.Compiler">
+      <classpath>
+        <pathelement location="src"/>
+        <path refid="project.class.path"/>
+      </classpath>
+      <!-- add jvmarg -Xss16M or similar if you see a StackOverflowError -->
+      <jvmarg value="-Xmx512M"/>
+      <!-- Additional arguments like -style PRETTY or -logLevel DEBUG -->
+      <arg value="com.skyquill.minder.Minder2"/>
+    </java>
+  </target>
+
+  <target name="hosted" depends="javac" description="Run hosted mode">
+    <java failonerror="true" fork="true" classname="com.google.gwt.dev.DevMode">
+      <classpath>
+        <pathelement location="src"/>
+        <path refid="project.class.path"/>
+      </classpath>
+      <jvmarg value="-Xmx512M"/>
+      <arg value="-startupUrl"/>
+      <arg value="Minder2.html"/>
+      <!-- Additional arguments like -style PRETTY or -logLevel DEBUG -->
+      <arg value="com.skyquill.minder.Minder2"/>
+    </java>
+  </target>
+
+  <target name="build" depends="gwtc" description="Build this project" />
+
+  <target name="war" depends="build" description="Create a war file">
+    <zip destfile="HibernateDS.war" basedir="war"/>
+  </target>
+
+  <target name="clean" description="Cleans this project">
+	<delete failonerror="false">
+	    <fileset dir="war/WEB-INF/classes"/>
+	</delete>
+	<delete>
+		<fileset dir="war/WEB-INF/lib" includes="**/*.jar" />
+	</delete>
+    <delete dir="war/minder2" failonerror="false" />
+  </target>
+
+	<path id="toolslib">
+	 <path location="war/WEB-INF/lib/hibernate-tools-3.2.2.jar" />
+	 <path location="war/WEB-INF/lib/hibernate-3.0.jar" />
+	 <path location="war/WEB-INF/lib/hibernate-tools-3.2.2.jar" />
+	 <path location="war/WEB-INF/lib/commons-logging-1.1.1.jar" />
+	 <path location="war/WEB-INF/lib/slf4j-api-1.5.6.jar" />
+	 <path location="war/WEB-INF/lib/slf4j-log4j12-1.5.6.jar" />
+	 <path location="war/WEB-INF/lib/log4j-1.2.15.jar" />
+	 <path location="war/WEB-INF/lib/mysql-connector-java-5.1.6-bin.jar" />
+	</path>
+	   
+	<taskdef name="hibernatetool" 
+	         classname="org.hibernate.tool.ant.HibernateToolTask" 
+	         classpathref="project.class.path" />
+
+	<target name="hbm2hbmxml" >
+		<hibernatetool destdir="war/WEB-INF/generated">
+	
+		 <annotationconfiguration configurationfile="war/WEB-INF/hibernate.cfg.xml"/>
+	
+		 <hbm2hbmxml/>
+	
+		</hibernatetool>	
+	</target>
+		
+</project>

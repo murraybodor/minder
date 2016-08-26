@@ -1,0 +1,26 @@
+<DataSource 
+	ID="travellers"
+    dropExtraFields="true"
+    serverType="generic"
+    mappedBeanClass="com.skyquill.minder.model.Traveller"
+>
+	<fields>
+		<field name="id" 			type="text"  hidden="true" primaryKey="true"/>
+		<field name="firstName" 	type="text" required="true"></field>
+		<field name="lastName" 		type="text" required="true"></field>
+		<field name="birthDate" 	type="date" required="true"/>
+		<field name="birthPlace" 	type="text"></field>
+		<field name="birthCountryId" type="text" foreignKey="countries.id"></field>
+		<field name="cellPhone" 	type="text"></field>
+		<field name="homePhone" 	type="text"></field>
+		<field name="email" 		type="text"></field>
+		<field name="employee" 		type="boolean" title="Employee?"></field>
+		<field name="comments" 		type="text" hidden="true"></field>
+		<field name="auditDateTime" type="datetime" hidden="true"></field>
+		<field name="auditUserId" 	type="text" hidden="true"></field>
+		<field name="version" 		type="number" hidden="true"></field>
+<!--		<field name="itineraries" multiple="true" hidden="true" type="itineraries" javaClass="com.skyquill.minder.model.Itinerary"  />-->
+		<field name="visas" multiple="true" hidden="true" type="visas" javaClass="com.skyquill.minder.model.Visa"  />
+	</fields>
+    <serverObject lookupStyle="spring" bean="genericJdoDao"/>
+</DataSource>

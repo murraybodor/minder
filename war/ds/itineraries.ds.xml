@@ -1,0 +1,33 @@
+<DataSource 
+	ID="itineraries"
+    dropExtraFields="true"
+    serverType="generic"
+    mappedBeanClass="com.skyquill.minder.model.Itinerary"
+>
+	<fields>
+		<field name="id" 			type="text"  hidden="true" primaryKey="true"/>
+		<field name="travellerId" 	type="text" hidden="true" foreignKey="travellers.id"></field>
+		<field name="authorizationId" type="text"></field>
+		<field name="departDate" 	type="date"></field>
+		<field name="pnrLocator" 	type="text"></field>
+		<field name="name" 			type="text"></field>
+		<field name="purpose" 		type="text"></field>
+		<field name="contact" 		type="text"></field>
+		<field name="reservationDate" type="date"></field>
+		<field name="returnDate" 	type="date"></field>
+		<field name="international" type="boolean"></field>
+		<field name="ticketNumber" 	type="number"></field>
+		<field name="tripDays" 		type="number"></field>
+		<field name="flightCost" 	type="float"></field>
+		<field name="tax" 			type="float"></field>
+		<field name="totalCost" 	type="float"></field>
+		<field name="currencyId" 	type="text" hidden="true" foreignKey="currencies.id"></field>
+		<field name="comments" 		type="text"></field>
+		<field name="auditDateTime" type="datetime" canEdit="false" title="Last Changed"></field>
+		<field name="auditUserId" 	type="text" canEdit="false" title="By"></field>
+		<field name="version" 		type="number" hidden="true"></field>
+		<field name="reservations" title="Reservations" multiple="true"  
+            type="reservations" javaClass="com.skyquill.minder.model.Reservation"  />
+	</fields>
+    <serverObject lookupStyle="spring" bean="genericJdoDao"/>
+</DataSource>

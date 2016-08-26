@@ -1,0 +1,28 @@
+<DataSource 
+	ID="reportparameters"
+    dropExtraFields="true"
+    serverType="generic"
+    mappedBeanClass="com.skyquill.minder.model.ReportParameters"
+>
+	<fields>
+		<field name="id" 			type="text" primaryKey="true"></field>
+		<field name="reportName" 	type="text"></field>
+		<field name="reportTitle" 	type="text"></field>
+		<field name="submitDate" 	type="date"></field>
+		<field name="submitUserId" 	type="text"></field>
+		<field name="depFromDate" 	type="date"></field>
+		<field name="depToDate" 	type="date"></field>
+		<field name="arrFromDate" 	type="date"></field>
+		<field name="arrToDate" 	type="date"></field>
+		<field name="showTerminated" 	type="text"></field>
+		<field name="empType" 		type="text"></field>
+		<field name="outputFormat" 	type="text"></field>
+		<field name="userComments" 	type="text"></field>
+		<field name="originCityId" 	type="text"></field>
+		<field name="originCountryId" 	type="text"></field>
+		<field name="destinationCityId" 	type="text"></field>
+		<field name="destinationCountryId" 	type="text"></field>
+		<field name="reportColumns" multiple="true" type="java.util.list" javaClass="java.util.list"></field>
+	</fields>
+    <serverObject lookupStyle="spring" bean="genericJdoDao"/>
+</DataSource>

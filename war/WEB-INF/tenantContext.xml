@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+<!--	<bean id="sessionFactoryProxy" class="com.skyquill.minder.server.SessionFactoryProxy" />-->
+<!---->
+<!--    <bean id="demoTxManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">-->
+<!--      <property name="sessionFactory" ref="demoSessionFactory"/>-->
+<!--    </bean>-->
+<!---->
+<!--	<bean id="demoSessionFactory"	class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">-->
+<!--		<property name="dataSource" ref="demoDataSource" />-->
+<!--		<property name="configLocation"><value>/WEB-INF/tenant.cfg.xml</value></property>		-->
+<!--	</bean>-->
+<!---->
+<!--	<bean id="demoDataSource" class="org.apache.commons.dbcp.BasicDataSource">-->
+<!--		<property name="driverClassName" value="com.mysql.jdbc.Driver" /> -->
+<!--	  <property name="url" value="jdbc:mysql://localhost/demo" /> -->
+<!--	  <property name="username" value="root" /> -->
+<!--	  <property name="password" value="goulash" />-->
+<!--		<property name="initialSize" value="3" />-->
+<!--		<property name="maxActive" value="5" />-->
+<!--	</bean>-->
+<!--	-->
+<!--	<bean id="genericDao" class="com.skyquill.minder.server.GenericDAO">-->
+<!--    	<property name="sessionFactory" ref="demoSessionFactory"/>-->
+<!--  	</bean>-->
+
+<!-- new stuff from here down -->
+
+<!-- workaround appengine lack of JNDI support -->
+<!--	 <bean id="org.springframework.context.annotation.internalPersistenceAnnotationProcessor"-->
+<!--	     class="java.lang.String" />-->
+	    <!-- End workaround -->
+	 
+<!--	 <context:component-scan base-package="com.skyquill.minder"/>-->
+<!--	 <context:annotation-config />-->
+<!--	  -->
+<!--	 <tx:annotation-driven />-->
+	
+	
+	
+     <!-- JDO Specific -->
+<!--	 <bean id="persistenceManagerFactory" class="org.springframework.orm.jdo.LocalPersistenceManagerFactoryBean">-->
+<!--	    <property name="persistenceManagerFactoryName" value="transactions-optional" />-->
+<!--	 </bean>-->
+
+
+<!--	<bean id="jdoTemplate" class="org.springframework.orm.jdo.JdoTemplate">-->
+<!--		<constructor-arg>-->
+<!--			<ref bean="persistenceManagerFactory"/>-->
+<!--		</constructor-arg>-->
+<!--    </bean>-->
+	<bean id="genericJdoDao" class="com.skyquill.minder.server.gae.GenericJdoDao"/>
+<!--	    <property name="pmf" ref="persistenceManagerFactory" />-->
+<!--	 </bean>-->
+
+	 
+<!--	 <bean id="transactionManager" class="org.springframework.orm.jdo.JdoTransactionManager">-->
+<!--	     <property name="persistenceManagerFactory" ref="persistenceManagerFactory" />-->
+<!--	 </bean>-->
+	 <!-- End JDO Specific -->	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+<!--    <bean name="demoOSIVInterceptor" class="org.springframework.orm.hibernate3.support.OpenSessionInViewInterceptor">-->
+<!--        <property name="sessionFactory"><ref bean="demoSessionFactory"/></property>-->
+<!--    </bean>-->
+<!--	-->
+<!--	<bean id="demoUrlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">-->
+<!--        <property name="interceptors">-->
+<!--	        <list>-->
+<!--    	        <ref bean="demoOSIVInterceptor"/>-->
+<!--        	</list>-->
+<!--       	</property>-->
+<!--    </bean>-->
+	
+
+<!--    <bean id="demoUrlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">-->
+<!--        <property name="mappings">-->
+<!--            <props>-->
+<!--                <prop key="/**/*/demo.rpc">hibernateController</prop>-->
+<!--            </props>-->
+<!--        </property>-->
+<!--        <property name="interceptors">-->
+<!--	        <list>-->
+<!--    	        <ref bean="demoOSIVInterceptor"/>-->
+<!--        	</list>-->
+<!--       	</property>-->
+<!--    </bean>-->
+<!---->
+<!--    <bean name="demoOSIVInterceptor" class="org.springframework.orm.hibernate3.support.OpenSessionInViewInterceptor">-->
+<!--        <property name="sessionFactory"><ref bean="demoSessionFactory"/></property>-->
+<!--        <property name="interceptors"></property>-->
+<!--        <property name="mappings"></property>-->
+<!--    </bean>-->
+<!---->
+
+
+<!--   Beans used by Hibernate Data Binding example -->
+<!--  <bean id="airlinesDaoTarget" class="com.skyquill.minder.server.AirlineDAO">-->
+<!--    <property name="sessionFactory" ref="demoSessionFactory"/>-->
+<!--  </bean>-->
+
+<!--   Transaction proxy for supplyItemDMI -->
+<!--  <bean id="airlinesDao" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">-->
+<!--     <property name="transactionManager" ref="demoTxManager"/>-->
+<!--     <property name="target" ref="airlinesDaoTarget"/>-->
+<!--     <property name="transactionAttributes">-->
+<!--         <props>-->
+<!--             <prop key="fetch">PROPAGATION_REQUIRED</prop>-->
+<!--             <prop key="add">PROPAGATION_REQUIRED</prop>-->
+<!--             <prop key="update">PROPAGATION_REQUIRED</prop>-->
+<!--             <prop key="remove">PROPAGATION_REQUIRED</prop>-->
+<!--         </props>-->
+<!--     </property>-->
+<!--  </bean>-->
+
+
+
+<!--   Beans used by Hibernate Data Binding example -->
+
+<!--   Transaction proxy for supplyItemDMI -->
+<!--  <bean id="waDao" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">-->
+<!--     <property name="transactionManager" ref="demoTxManager"/>-->
+<!--     <property name="target" ref="waDaoTarget"/>-->
+<!--     <property name="transactionAttributes">-->
+<!--         <props>-->
+<!--             <prop key="fetch">PROPAGATION_REQUIRED</prop>-->
+<!--             <prop key="add">PROPAGATION_REQUIRED</prop>-->
+<!--             <prop key="update">PROPAGATION_REQUIRED</prop>-->
+<!--             <prop key="remove">PROPAGATION_REQUIRED</prop>-->
+<!--         </props>-->
+<!--     </property>-->
+<!--  </bean>-->
+
+<!--   Beans used by Hibernate Data Binding example -->
+<!--  <bean id="curDaoTarget" class="com.skyquill.minder.server.CurDAO">-->
+<!--    <property name="sessionFactory" ref="demoSessionFactory"/>-->
+<!--  </bean>-->
+
+<!--   Transaction proxy for supplyItemDMI -->
+<!--  <bean id="curDao" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">-->
+<!--     <property name="transactionManager" ref="demoTxManager"/>-->
+<!--     <property name="target" ref="curDaoTarget"/>-->
+<!--     <property name="transactionAttributes">-->
+<!--         <props>-->
+<!--             <prop key="fetch">PROPAGATION_REQUIRED</prop>-->
+<!--             <prop key="add">PROPAGATION_REQUIRED</prop>-->
+<!--             <prop key="update">PROPAGATION_REQUIRED</prop>-->
+<!--             <prop key="remove">PROPAGATION_REQUIRED</prop>-->
+<!--         </props>-->
+<!--     </property>-->
+<!--  </bean>-->
+
+<!--   Beans used by Hibernate Data Binding example -->
+<!--  <bean id="countryDaoTarget" class="com.skyquill.minder.server.CountryDAO">-->
+<!--    <property name="sessionFactory" ref="demoSessionFactory"/>-->
+<!--  </bean>-->
+
+<!--   Transaction proxy for supplyItemDMI -->
+<!--  <bean id="countryDao" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">-->
+<!--     <property name="transactionManager" ref="demoTxManager"/>-->
+<!--     <property name="target" ref="countryDaoTarget"/>-->
+<!--     <property name="transactionAttributes">-->
+<!--         <props>-->
+<!--             <prop key="fetch">PROPAGATION_REQUIRED</prop>-->
+<!--             <prop key="add">PROPAGATION_REQUIRED</prop>-->
+<!--             <prop key="update">PROPAGATION_REQUIRED</prop>-->
+<!--             <prop key="remove">PROPAGATION_REQUIRED</prop>-->
+<!--         </props>-->
+<!--     </property>-->
+<!--  </bean>-->
+
+<!--	<bean id="demoUrlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">-->
+<!--        <property name="interceptors">-->
+<!--	        <list>-->
+<!--    	        <ref bean="demoOSIVInterceptor"/>-->
+<!--        	</list>-->
+<!--       	</property>-->
+<!--    </bean>-->
+<!--    <bean name="demoOSIVInterceptor" class="org.springframework.orm.hibernate3.support.OpenSessionInViewInterceptor">-->
+<!--        <property name="sessionFactory"><ref bean="demoSessionFactory"/></property>-->
+<!--    </bean>-->
+
+<!--    <bean id="wzagTxManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">-->
+<!--      <property name="sessionFactory" ref="wzagSessionFactory"/>-->
+<!--    </bean>-->
+<!---->
+<!--	<bean id="wzagSessionFactory"	class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">-->
+<!--		<property name="dataSource" ref="wzagDataSource" />-->
+<!--		<property name="configLocation"><value>/WEB-INF/tenant.cfg.xml</value></property>		-->
+<!--	</bean>-->
+<!---->
+<!---->
+<!--	<bean id="wzagDataSource" class="org.apache.commons.dbcp.BasicDataSource">-->
+<!--		<property name="driverClassName" value="com.mysql.jdbc.Driver" /> -->
+<!--	  <property name="url" value="jdbc:mysql://localhost/wzag" /> -->
+<!--	  <property name="username" value="root" /> -->
+<!--	  <property name="password" value="goulash" />-->
+<!--		<property name="initialSize" value="3" />-->
+<!--		<property name="maxActive" value="5" />-->
+<!--	</bean>-->
+<!---->
+<!---->
+<!--	<bean id="wzagUrlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">-->
+<!--        <property name="interceptors">-->
+<!--	        <list>-->
+<!--    	        <ref bean="wzagOSIVInterceptor"/>-->
+<!--        	</list>-->
+<!--       	</property>-->
+<!--    </bean>-->
+<!--    <bean name="wzagOSIVInterceptor" class="org.springframework.orm.hibernate3.support.OpenSessionInViewInterceptor">-->
+<!--        <property name="sessionFactory"><ref bean="wzagSessionFactory"/></property>-->
+<!--    </bean>-->
+
+
+
+<!--  <bean id="airlinesDaoTarget" class="com.skyquill.minder.server.AirlineDao">-->
+<!--    <property name="sessionFactory" ref="demoSessionFactory"/>-->
+<!--  </bean>-->
+
+<!--  <bean id="ormDataSource" class="com.skyquill.minder.server.ORMDataSource"/>-->
+  
+  <!-- Transaction proxy for supplyItemDMI -->
+<!--  <bean id="currencyDao" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">-->
+<!--     <property name="transactionManager" ref="txManager"/>-->
+<!--     <property name="target" ref="currencyDaoTarget"/>-->
+<!--     <property name="transactionAttributes">-->
+<!--         <props>-->
+<!--             <prop key="fetch">PROPAGATION_REQUIRED</prop>-->
+<!--             <prop key="add">PROPAGATION_REQUIRED</prop>-->
+<!--             <prop key="update">PROPAGATION_REQUIRED</prop>-->
+<!--             <prop key="remove">PROPAGATION_REQUIRED</prop>-->
+<!--         </props>-->
+<!--     </property>-->
+<!--  </bean>-->
+
+<!--  <bean id="idacall" class="com.skyquill.minder.server.MultiTenantProcessor"/>-->
+
+<!--	<tx:annotation-driven transaction-manager="txManager"/>-->
+
+
+  <!-- Hibernate SessionFactory -->
+<!--  <bean id="hibernateSessionFactory"-->
+<!--        class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">-->
+<!--    <property name="configLocation" value="classpath:hibernate.cfg.xml"/>-->
+<!--    <property name="mappingLocations" value="classpath:com/smartgwt/sample/server/SupplyItem.hbm.xml"/>-->
+<!--  </bean>-->
+
+
+	<!-- list of tenant contexts - used in scheduled jobs -->
+<!--	<bean id="tenantContexts" class="org.springframework.beans.factory.config.ListFactoryBean">-->
+<!--	    <property name="sourceList">-->
+<!--			<list>-->
+<!--        		<value>demo</value>-->
+<!--			</list>-->
+<!--		</property>-->
+<!--	</bean>-->
+	
+	
+<!--	<bean id="demoTransactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">-->
+<!--		<property name="sessionFactory" ref="demo" />-->
+<!--	</bean>-->
+	
+	
+<!--	<bean id="demoUrlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">-->
+<!--        <property name="interceptors">-->
+<!--	        <list>-->
+<!--    	        <ref bean="demoOSIVInterceptor"/>-->
+<!--        	</list>-->
+<!--       	</property>-->
+<!--    </bean>-->
+<!--    <bean name="demoOSIVInterceptor" class="org.springframework.orm.hibernate3.support.OpenSessionInViewInterceptor">-->
+<!--        <property name="sessionFactory"><ref bean="demo"/></property>-->
+<!--    </bean>-->
+
+
+</beans>

@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated 25-Dec-2009 8:45:28 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+
+<joined-subclass 
+    name="com.skyquill.minder.model.HotelReservation"
+    extends="com.skyquill.minder.model.Reservation"
+    table="HOTELRESERVATIONS"
+>
+
+ <key> 
+<column name="ID" not-null="true" />
+ </key>
+
+
+    <property
+        name="arrivalDate"
+        type="java.util.Date"
+    >
+<column name="ARRIVAL_DATE" />
+  </property>
+
+    <property
+        name="checkoutDate"
+        type="java.util.Date"
+    >
+<column name="CHECKOUT_DATE" />
+  </property>
+
+    <many-to-one
+	    name="city"
+	    class="com.skyquill.minder.model.City"
+        update="false"
+        insert="false"
+        fetch="join"
+    >
+<column name="CITY_ID" />
+   </many-to-one>
+    <property
+        name="cityId"
+        type="java.lang.Long"
+    >
+<column name="CITY_ID" />
+  </property>
+
+    <property
+        name="comments"
+        type="java.lang.String"
+    >
+<column name="COMMENTS" length="400" />
+  </property>
+
+    <property
+        name="conf"
+        type="java.lang.String"
+    >
+<column name="CONF" length="40" />
+  </property>
+
+    <property
+        name="cost"
+        type="java.lang.Float"
+    >
+<column name="COST" />
+  </property>
+
+    <property
+        name="costCenter"
+        type="java.lang.String"
+    >
+<column name="COST_CENTER" length="40" />
+  </property>
+
+    <many-to-one
+	    name="currency"
+	    class="com.skyquill.minder.model.Currency"
+        update="false"
+        insert="false"
+        fetch="join"
+    >
+<column name="CURRENCY_ID" />
+   </many-to-one>
+    <property
+        name="currencyId"
+        type="java.lang.Long"
+    >
+<column name="CURRENCY_ID" />
+  </property>
+
+    <many-to-one
+	    name="hotel"
+	    class="com.skyquill.minder.model.Hotel"
+        update="false"
+        insert="false"
+        fetch="join"
+    >
+<column name="HOTEL_ID" />
+   </many-to-one>
+    <property
+        name="hotelId"
+        type="java.lang.Long"
+    >
+<column name="HOTEL_ID" />
+  </property>
+
+    <property
+        name="needsFollowUp"
+        type="java.lang.Boolean"
+    >
+<column name="FOLLOWUP" />
+  </property>
+
+    <property
+        name="otherHotel"
+        type="java.lang.String"
+    >
+<column name="OTHER_HOTEL" length="120" />
+  </property>
+
+    <property
+        name="purpose"
+        type="java.lang.String"
+    >
+<column name="PURPOSE" length="240" />
+  </property>
+
+    <property
+        name="roomType"
+        type="java.lang.String"
+    >
+<column name="ROOM_TYPE" length="80" />
+  </property>
+
+
+</joined-subclass>
+
+</hibernate-mapping>

@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated 25-Dec-2009 8:45:28 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+
+<class 
+    name="com.skyquill.minder.model.MedicalAssessment"
+    table="MEDICALASSESSMENTS"
+>
+
+	<id 
+        name="id"
+        type="java.lang.Long"
+    >
+    
+<column name="ID" />
+	    <generator class="native">
+            <param name="max_lo">49</param>
+            <param name="sequence">MEDICALASSESSMENTS_SEQ</param>
+		</generator>
+    </id>
+
+    <version
+        name="version"
+        type="java.lang.Integer"
+    >
+<column name="VERSION" />
+	</version>
+
+
+    <property
+        name="assessmentDate"
+        type="java.util.Date"
+    >
+<column name="ASSESSMENT_DATE" />
+  </property>
+
+    <property
+        name="assessmentType"
+        type="java.lang.String"
+    >
+<column name="ASSESSMENT_TYPE" length="80" />
+  </property>
+
+
+<component 
+    name="audit"
+    class="com.skyquill.minder.model.Audit">
+    
+<!-- TODO: handle properties and component -->    
+</component>    <property
+        name="comments"
+        type="java.lang.String"
+    >
+<column name="COMMENTS" length="400" />
+  </property>
+
+    <many-to-one
+	    name="country"
+	    class="com.skyquill.minder.model.Country"
+        update="false"
+        insert="false"
+        fetch="join"
+    >
+<column name="COUNTRY_ID" />
+   </many-to-one>
+    <property
+        name="countryId"
+        type="java.lang.Long"
+    >
+<column name="COUNTRY_ID" />
+  </property>
+
+    <many-to-one
+	    name="traveller"
+	    class="com.skyquill.minder.model.Traveller"
+        fetch="join"
+    >
+<column name="TRAVELLER_ID" />
+   </many-to-one>
+
+</class>
+
+</hibernate-mapping>

@@ -1,0 +1,18 @@
+<DataSource 
+	ID="costallocations"
+    dropExtraFields="true"
+    serverType="generic"
+    mappedBeanClass="com.skyquill.minder.model.CostAllocation"
+>
+	<fields>
+		<field name="id" 			type="text"  hidden="true" primaryKey="true"/>
+		<field name="itineraryId" 	type="text" foreignKey="itineraries.id"></field>
+		<field name="reservationId" 	type="text" foreignKey="reservations.id"></field>
+		<field name="percentAllocation" type="float"></field>
+		<field name="costCenter" 	type="text"></field>
+		<field name="auditDateTime" type="datetime"></field>
+		<field name="auditUserId" 	type="text"></field>
+		<field name="version" 		type="number"></field>
+	</fields>
+    <serverObject lookupStyle="spring" bean="genericJdoDao"/>
+</DataSource>

@@ -1,0 +1,142 @@
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+    version="2.4">
+
+  <context-param>
+  	<param-name>contextConfigLocation</param-name>
+    <param-value>
+    	/WEB-INF/tenantContext.xml
+    </param-value>
+  </context-param>
+
+<!--        /WEB-INF/securityContext.xml-->
+    
+  <listener> 	
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class> 
+  </listener>
+
+  <!-- Filters -->
+<!--  <filter>-->
+<!--      <filter-name>springSecurityFilterChain</filter-name>-->
+<!--      <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>-->
+<!--  </filter>-->
+  <filter>
+      <filter-name>CompressionFilter</filter-name>
+      <filter-class>com.isomorphic.servlet.CompressionFilter</filter-class>
+  </filter>
+<!--  <filter-mapping>-->
+<!--      <filter-name>springSecurityFilterChain</filter-name>-->
+<!--      <url-pattern>/*</url-pattern>-->
+<!--  </filter-mapping>-->
+  <filter-mapping>
+      <filter-name>CompressionFilter</filter-name>
+      <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <!-- Servlets -->
+<!--  <servlet>-->
+<!--    <servlet-name>rpc</servlet-name>-->
+<!--    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>-->
+<!--    <load-on-startup>1</load-on-startup>-->
+<!--  </servlet>-->
+    
+  <servlet>
+    <servlet-name>IDACall</servlet-name>
+    <servlet-class>com.skyquill.minder.server.MultiTenantProcessor</servlet-class>
+  </servlet>
+  
+  <servlet>  
+    <servlet-name>Init</servlet-name>  
+    <servlet-class>com.isomorphic.base.Init</servlet-class>  
+    <load-on-startup>1</load-on-startup>  
+  </servlet>  
+     
+  <servlet>
+    <servlet-name>FileDownload</servlet-name>
+    <servlet-class>com.isomorphic.servlet.FileDownload</servlet-class>
+  </servlet>
+
+  <servlet>  
+    <servlet-name>DataSourceLoader</servlet-name>  
+    <servlet-class>com.isomorphic.servlet.DataSourceLoader</servlet-class>  
+  </servlet>  
+  
+  <servlet>  
+    <servlet-name>HttpProxy</servlet-name>  
+    <servlet-class>com.isomorphic.servlet.HttpProxyServlet</servlet-class>  
+  </servlet>   
+     
+  <servlet>  
+    <servlet-name>PreCache</servlet-name>  
+    <servlet-class>com.isomorphic.servlet.PreCache</servlet-class>  
+    <load-on-startup>2</load-on-startup>  
+  </servlet>  
+     
+  <servlet>
+      <servlet-name>report</servlet-name>
+      <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  </servlet>
+    
+  <!-- Mappings -->
+  <servlet-mapping>  
+    <servlet-name>IDACall</servlet-name>  
+    <url-pattern>/minder2/sc/IDACall/*</url-pattern>  
+  </servlet-mapping>  
+   
+  <servlet-mapping>  
+    <servlet-name>DataSourceLoader</servlet-name>  
+    <url-pattern>/sc/DataSourceLoader</url-pattern>  
+  </servlet-mapping>  
+   
+  <servlet-mapping>  
+    <servlet-name>HttpProxy</servlet-name>  
+    <url-pattern>/sc/HttpProxy/*</url-pattern>  
+  </servlet-mapping>  
+
+  <servlet-mapping>
+   <servlet-name>FileDownload</servlet-name>
+   <url-pattern>/sc/skins/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+   <servlet-name>FileDownload</servlet-name>
+   <url-pattern>/sc/system/modules/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+   <servlet-name>FileDownload</servlet-name>
+   <url-pattern>/sc/system/development/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+   <servlet-name>FileDownload</servlet-name>
+   <url-pattern>/sc/system/reference/skin/*</url-pattern>
+  </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>report</servlet-name>
+        <url-pattern>*.smvc</url-pattern>
+    </servlet-mapping>
+    
+<!--  <servlet-mapping>-->
+<!--   <servlet-name>rpc</servlet-name>-->
+<!--   <url-pattern>*.rpc</url-pattern>-->
+<!--  </servlet-mapping>-->
+
+  <session-config>
+   <session-timeout>30</session-timeout>
+  </session-config>
+
+  <jsp-config>
+   <taglib>
+       <taglib-uri>isomorphic</taglib-uri> 
+       <taglib-location>/WEB-INF/iscTaglib.xml</taglib-location> 
+   </taglib>
+  </jsp-config>
+  
+  <welcome-file-list>
+    <welcome-file>Minder2.html</welcome-file>
+  </welcome-file-list>
+
+</web-app>

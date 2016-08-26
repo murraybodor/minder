@@ -1,0 +1,207 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated 25-Dec-2009 8:45:28 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+
+<class 
+    name="com.skyquill.minder.model.Hotel"
+    table="HOTELS"
+>
+
+	<id 
+        name="id"
+        type="java.lang.Long"
+    >
+    
+<column name="ID" />
+	    <generator class="native">
+            <param name="max_lo">49</param>
+            <param name="sequence">HOTELS_SEQ</param>
+		</generator>
+    </id>
+
+    <version
+        name="version"
+        type="java.lang.Integer"
+    >
+<column name="VERSION" />
+	</version>
+
+
+    <property
+        name="active"
+        type="java.lang.Boolean"
+    >
+<column name="ACTIVE" />
+  </property>
+
+    <property
+        name="address"
+        type="java.lang.String"
+    >
+<column name="ADDRESS" length="200" />
+  </property>
+
+    <property
+        name="address2"
+        type="java.lang.String"
+    >
+<column name="ADDRESS2" length="80" />
+  </property>
+
+    <property
+        name="address3"
+        type="java.lang.String"
+    >
+<column name="ADDRESS3" length="80" />
+  </property>
+
+    <property
+        name="address4"
+        type="java.lang.String"
+    >
+<column name="ADDRESS4" length="80" />
+  </property>
+
+
+<component 
+    name="audit"
+    class="com.skyquill.minder.model.Audit">
+    
+<!-- TODO: handle properties and component -->    
+</component>    <many-to-one
+	    name="city"
+	    class="com.skyquill.minder.model.City"
+        update="false"
+        insert="false"
+        fetch="join"
+    >
+<column name="CITY_ID" />
+   </many-to-one>
+    <property
+        name="cityId"
+        type="java.lang.Long"
+    >
+<column name="CITY_ID" />
+  </property>
+
+    <many-to-one
+	    name="closestAirport"
+	    class="com.skyquill.minder.model.Airport"
+        update="false"
+        insert="false"
+        fetch="join"
+    >
+<column name="AIRPORT_ID" />
+   </many-to-one>
+    <property
+        name="closestAirportId"
+        type="java.lang.Long"
+    >
+<column name="AIRPORT_ID" />
+  </property>
+
+    <property
+        name="comments"
+        type="java.lang.String"
+    >
+<column name="COMMENTS" length="400" />
+  </property>
+
+    <property
+        name="fax"
+        type="java.lang.String"
+    >
+<column name="FAX" length="20" />
+  </property>
+
+    <many-to-one
+	    name="hotelChain"
+	    class="com.skyquill.minder.model.HotelChain"
+        update="false"
+        insert="false"
+        fetch="join"
+    >
+<column name="HOTELCHAIN_ID" />
+   </many-to-one>
+    <property
+        name="hotelChainId"
+        type="java.lang.Long"
+    >
+<column name="HOTELCHAIN_ID" />
+  </property>
+
+	<bag
+		name="hotelFacilities"
+        inverse="true"
+	>
+	
+ 		<key> 
+<column name="HOTEL_ID" />
+        </key>
+		<one-to-many 
+			 class="com.skyquill.minder.model.HotelFacility"
+			/>			
+     </bag>    <property
+        name="latitude"
+        type="java.lang.Float"
+    >
+<column name="LATITUDE" />
+  </property>
+
+    <property
+        name="location"
+        type="java.lang.String"
+    >
+<column name="LOCATION" length="6" />
+  </property>
+
+    <property
+        name="longitude"
+        type="java.lang.Float"
+    >
+<column name="LONGITUDE" />
+  </property>
+
+    <property
+        name="name"
+        type="java.lang.String"
+    >
+<column name="NAME" length="40" />
+  </property>
+
+    <property
+        name="phone"
+        type="java.lang.String"
+    >
+<column name="PHONE" length="20" />
+  </property>
+
+    <property
+        name="photoFileName"
+        type="java.lang.String"
+    >
+<column name="PHOTO_FILENAME" length="40" />
+  </property>
+
+    <property
+        name="preferredOrder"
+        type="java.lang.Integer"
+    >
+<column name="PREFERRED_ORDER" length="2" />
+  </property>
+
+    <property
+        name="url"
+        type="java.lang.String"
+    >
+<column name="URL" length="240" />
+  </property>
+
+
+</class>
+
+</hibernate-mapping>

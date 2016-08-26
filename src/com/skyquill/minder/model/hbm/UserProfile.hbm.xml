@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated 25-Dec-2009 8:45:28 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+
+<class 
+    name="com.skyquill.minder.model.UserProfile"
+    table="USERPROFILES"
+>
+
+	<id 
+        name="id"
+        type="java.lang.Long"
+    >
+    
+<column name="ID" />
+	    <generator class="native">
+            <param name="max_lo">49</param>
+            <param name="sequence">USERPROFILES_SEQ</param>
+		</generator>
+    </id>
+
+    <version
+        name="version"
+        type="java.lang.Integer"
+    >
+<column name="VERSION" />
+	</version>
+
+
+
+<component 
+    name="audit"
+    class="com.skyquill.minder.model.Audit">
+    
+<!-- TODO: handle properties and component -->    
+</component>    <many-to-one
+	    name="currency"
+	    class="com.skyquill.minder.model.Currency"
+        update="false"
+        insert="false"
+        fetch="join"
+    >
+<column name="CURRENCY_ID" />
+   </many-to-one>
+    <property
+        name="currencyId"
+        type="java.lang.Long"
+    >
+<column name="CURRENCY_ID" />
+  </property>
+
+    <property
+        name="dateFormat"
+        type="java.lang.String"
+    >
+<column name="DATE_FORMAT" length="20" not-null="true" />
+  </property>
+
+    <property
+        name="timeZone"
+        type="java.lang.Integer"
+    >
+<column name="TIME_ZONE" />
+  </property>
+
+    <property
+        name="userId"
+        type="java.lang.String"
+    >
+<column name="USER_ID" length="50" not-null="true" />
+  </property>
+
+
+</class>
+
+</hibernate-mapping>

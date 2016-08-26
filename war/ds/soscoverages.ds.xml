@@ -1,0 +1,22 @@
+<DataSource 
+	ID="soscoverages"
+    dropExtraFields="true"
+    serverType="generic"
+    mappedBeanClass="com.skyquill.minder.model.SOSCoverage"
+>
+	<fields>
+		<field name="id" 				type="text" hidden="true" primaryKey="true"></field>
+		<field name="travellerId" 		type="text" hidden="true" foreignKey="travellers.id"></field>
+		<field name="personalCoverage" 	type="boolean"></field>
+		<field name="cardType" 			type="text"></field>
+		<field name="cardNumber" 		type="text"></field>
+		<field name="issueDate" 		type="date"></field>
+		<field name="expiryDate" 		type="date"></field>
+		<field name="returnDate" 		type="date"></field>
+		<field name="comments" 			type="text"></field>
+		<field name="auditDateTime" type="datetime" canEdit="false" title="Last Changed"></field>
+		<field name="auditUserId" 	type="text" canEdit="false" title="By"></field>
+		<field name="version" 		type="number" hidden="true"></field>
+	</fields>
+    <serverObject lookupStyle="spring" bean="genericJdoDao"/>
+</DataSource>
